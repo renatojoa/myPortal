@@ -1,0 +1,141 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "tt/accordion",
+  "version": "0.1.2",
+  "title": "Accordion",
+  "category": "text",
+  "description": "A block that displays vertical list items that can expand and collapse to show and hide their associated sections of content.",
+  "keywords": [
+    "accordion",
+    "accordion item",
+    "block",
+    "accessible",
+    "responsive"
+  ],
+  "textdomain": "accordion",
+  "attributes": {
+    "uid": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "headerElement": {
+      "type": "string",
+      "default": "paragraph"
+    },
+    "headerHeadingLevel": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "providesContext": {
+    "accordion/headerElement": "headerElement",
+    "accordion/headerHeadingLevel": "headerHeadingLevel"
+  },
+  "example": {
+    "attributes": {
+      "headerElement": "paragraph"
+    },
+    "innerBlocks": [
+      {
+        "name": "tt/accordion-item",
+        "attributes": {
+          "headerElement": "paragraph",
+          "headerText": "Lorem ipsum dolor"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus neque vel elementum fringilla. In sed leo in orci porta posuere. Ut dictum justo non dolor hendrerit, sit amet vulputate nisl porta. Maecenas posuere, lacus nec tincidunt dictum, nisl nulla rhoncus augue, non luctus lectus eros congue tellus. Nunc at malesuada sapien."
+            }
+          }
+        ]
+      },
+      {
+        "name": "tt/accordion-item",
+        "attributes": {
+          "headerElement": "paragraph",
+          "headerText": "Sit amet"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus neque vel elementum fringilla. In sed leo in orci porta posuere. Ut dictum justo non dolor hendrerit, sit amet vulputate nisl porta. Maecenas posuere, lacus nec tincidunt dictum, nisl nulla rhoncus augue, non luctus lectus eros congue tellus. Nunc at malesuada sapien."
+            }
+          }
+        ]
+      },
+      {
+        "name": "tt/accordion-item",
+        "attributes": {
+          "headerElement": "paragraph",
+          "headerText": "Consectetur adipiscing elit"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus neque vel elementum fringilla. In sed leo in orci porta posuere. Ut dictum justo non dolor hendrerit, sit amet vulputate nisl porta. Maecenas posuere, lacus nec tincidunt dictum, nisl nulla rhoncus augue, non luctus lectus eros congue tellus. Nunc at malesuada sapien."
+            }
+          }
+        ]
+      },
+      {
+        "name": "tt/accordion-item",
+        "attributes": {
+          "headerElement": "paragraph",
+          "headerText": "Cras finibus sit"
+        },
+        "innerBlocks": [
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus neque vel elementum fringilla. In sed leo in orci porta posuere. Ut dictum justo non dolor hendrerit, sit amet vulputate nisl porta. Maecenas posuere, lacus nec tincidunt dictum, nisl nulla rhoncus augue, non luctus lectus eros congue tellus. Nunc at malesuada sapien."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "supports": {
+    "anchor": true,
+    "align": true,
+    "className": false,
+    "color": {
+      "gradients": true,
+      "link": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true,
+        "link": true
+      }
+    },
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "script": "file:./script.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

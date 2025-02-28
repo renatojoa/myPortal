@@ -1,0 +1,54 @@
+// Editor and front end styles
+
+.wp-block-tt-accordion {
+	list-style: none;
+    padding: 1px 0 0 0;
+	margin: 0;
+	
+	.wp-block-tt-accordion-item {
+	    margin-top: -1px;
+	    border-top: #000 solid 1px;
+	    border-bottom: #000 solid 1px;
+		
+		.wp-block-tt-accordion-item-header {
+		    margin: 0;
+		    padding: 0;
+		
+			.wp-block-tt-accordion-item-header-button {
+			    all: unset;
+			    align-items: center;
+			    box-sizing: border-box;
+			    cursor: pointer;
+			    display: flex;
+			    justify-content: space-between;
+			    outline: revert;
+			    width: 100%;
+				flex-direction: row;
+			    padding-top: 0.75rem;
+			    padding-bottom: 0.75rem;
+			
+				.wp-block-tt-accordion-item-header-button-text {
+				    flex: auto;
+				}
+				[class^=wp-block-tt-accordion-item-header-button-icon] {
+				    display: flex;
+				    margin: 0 0.75rem;
+				}
+			}
+		}
+		.wp-block-tt-accordion-item-panel {
+		    margin: 0;
+		    max-height: 0;
+		    overflow: hidden;
+			
+			&[hidden] {
+				display: none;
+			}
+			&.open {
+			    max-height: 100vh;
+			    overflow: auto;
+			    visibility: visible;
+			}
+		}
+	}
+}

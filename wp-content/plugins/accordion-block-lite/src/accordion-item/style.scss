@@ -1,0 +1,47 @@
+// Editor and front end styles
+
+.wp-block-tt-accordion-item-header {
+	padding: 0;
+	margin: 0; 
+}
+
+.wp-block-tt-accordion-item-header-button {
+	all: unset;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+    cursor: pointer;
+	outline: revert;
+	box-sizing: border-box;
+}
+
+.wp-block-tt-accordion-item-header-button-text {
+	flex: auto;
+}
+
+[class^="wp-block-tt-accordion-item-header-button-icon"] {
+	display: flex;
+	margin: 0 0.75rem;
+}
+
+.wp-block-tt-accordion-item-header-button[aria-expanded="true"] .wp-block-tt-accordion-item-header-button-icon-arrow svg {
+	transform: rotate(180deg),
+}
+
+.wp-block-tt-accordion-item-panel {
+	max-height: 0vh;
+  	overflow: hidden;
+	margin: 0;
+}
+
+.wp-block-tt-accordion-item-panel.open {
+	max-height: 100vh;
+	overflow: auto;
+	visibility: visible;
+}
+
+/* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+.wp-block-tt-accordion-item-panel[hidden] {
+	display: none;
+}
