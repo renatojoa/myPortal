@@ -6,7 +6,7 @@
 //
 // Scripts
 // 
-
+import { renderCompanies } from './companies.js';
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -54,6 +54,18 @@ window.addEventListener('DOMContentLoaded', event => {
     // Activate SimpleLightbox plugin for portfolio items
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
+    });
+    // script.js
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Carrega o conteúdo de companies.html
+        fetch('companies.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('companies-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Erro ao carregar o conteúdo:', error));
     });
 
 });
