@@ -21,7 +21,7 @@
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">Start
+            <div class="container px-4 px-lg-5">QA | 
                 <a class="navbar-brand" href="#page-top"> Renato Araújo</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">Driving excellence through precision and reliability in every project!</p>
-                        <a class="btn btn-primary" href="#about">Download CV</a>
+                        <a class="btn btn-primary" href="assets/pdf/Renato Araújo - EN.pdf">Download CV</a>
                         <!-- Botão para abrir o modal de preview do PDF -->
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#pdfPreviewModal">View CV</button>
                     </div>
@@ -116,17 +116,25 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
+                        <h2 class="text-white mt-0">QUALITY ASSURANCE LEAD WITH A PASSION FOR PRECISION
+                            !</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                        <p class="text-white-75 mb-4">This is where I showcase my expertise in QA, automation, and team leadership.
+                            Dive in to explore my journey and the impactful projects I’ve been part of.”!</p>
                         <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
-                    </div>
-                </div>
+                                        </div>
+                        </div>
             </div>
         </section>
         </header>
         <!-- Services-->
         <section class="page-section" id="services">
+            <!-- Vídeo de fundo -->
+            <video autoplay muted loop id="video-background">
+                <source src="assets/videos/Awesome.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+        
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">At Your Service</h2>
                 <hr class="divider" />
@@ -162,6 +170,32 @@
                 </div>
             </div>
         </section>
+        
+        <style>
+            /* Estilos para o vídeo de fundo */
+            #video-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Garante que o vídeo cubra toda a área */
+                z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+            }
+        
+            /* Garante que a seção tenha uma altura mínima e posição relativa */
+            .page-section {
+                position: relative;
+                overflow: hidden;
+                min-height: 100vh; /* Ajuste conforme necessário */
+            }
+        
+            /* Ajustes para o conteúdo ficar sobre o vídeo */
+            .container {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
         <!-- Portfolio-->
         <div id="portfolio">
             <div class="container-fluid p-0">
