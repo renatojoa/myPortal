@@ -144,95 +144,454 @@
         </section>
     </header>
 
-    <!-- Companies -->
-    <section class="page-companies" id="companies">
-        <div id="portfolio">
-            <h2 class="text-center mt-5 btn-light">Companies</h2>
-            <div class="container-fluid p-2 ">
-                <div class="row g-1">
-                    <!-- Itens ocultos inicialmente -->
-                    <div class="col-lg-4 col-sm-6 company-item hidden-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/shop_place.jpg" title="Shop da Saúde">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/shop_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Inter - iOS Developer</div>
-                                <div class="work-period"> dec de 2013 - dec de 2014</div>
-                                <div>-</div>
-                                <div class="role text-white-40">Business Owner</div>
-                                <div class="work-period"> dec de 2014 - dec de 2016</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 company-item hidden-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/accenture-place.jpg" title="Accenture">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/accenture_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Quality Assurance Test Engineer</div>
-                                <div class="work-period"> out de 2017 - dez de 2018</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 company-item hidden-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/mesa_place.png" title="Mesa Mobile Thinking">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/mesa_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Quality Assurance Test Engineer</div>
-                                <div class="work-period"> dez de 2018 - aug de 2019</div>
-                                <div>-</div>
-                                <div class="role text-white-40">Software QA Team Lead</div>
-                                <div class="work-period"> aug de 2019 - set de 2020</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 company-item hidden-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/concrete_place.jpg" title="Concrete">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/concrete_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Quality Assurance Test Engineer</div>
-                                <div class="work-period"> sep de 2020 - jan de 2021</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 company-item hidden-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/dotz_place.jpg" title="Dotz">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/dotz_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Quality Assurance Test Engineer</div>
-                                <div class="work-period"> jan de 2021 - jul de 2021</div>
-                                <div>-</div>
-                                <div class="role text-white-40">Software QA Team Lead</div>
-                                <div class="work-period"> jul de 2021 - dec de 2022</div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Itens visíveis inicialmente -->
-                    <div class="col-lg-4 col-sm-6 company-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/liferay_place.jpg" title="Liferay">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/liferay_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Software QA Team Lead</div>
-                                <div class="work-period"> feb de 2023 - dez de 2023</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mx-auto position-relative company-item">
-                        <a class="portfolio-box" href="assets/img/companies/place/cit_place.png" title="CI&T">
-                            <img class="img-fluid mx-auto d-block" src="assets/img/companies/thumbnails/ciand_logo.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="role text-white-40">Quality Assurance Test Engineer</div>
-                                <div class="work-period"> apr de 2024 - Today</div>
-                            </div>
-                        </a>
-                        <span class="currently-working-tag">Currently Working</span>
-                    </div>
-                </div>
-                <!-- Botão "View All" -->
-                <div class="text-center mt-4">
-                    <button id="view-all-btn" class="btn btn-xl btn-primary">View All</button>
-                </div>
+    <!-- Companies Section -->
+<section class="companies-section py-5 bg-light" id="companies">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">My Professional Journey</h2>
+      
+      <div class="timeline">
+        <!-- Empresa Atual (Sempre Visível) -->
+        <div class="timeline-item current visible">
+          <div class="timeline-card">
+            <div class="company-logo-container">
+              <img src="assets/img/companies/thumbnails/ciand_logo.png" alt="CI&T Logo" class="company-logo" loading="lazy">
+              <span class="current-badge">Current</span>
             </div>
+            <div class="company-details">
+              <h3 class="company-name">CI&T</h3>
+              <div class="company-position">Quality Assurance Test Engineer</div>
+              <div class="company-period">Apr 2024 - Now</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="ciand">See Details</button>
+            </div>
+          </div>
         </div>
-    </section>
+  
+        <!-- Liferay -->
+        <div class="timeline-item visible">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/liferay_logo.png" alt="Liferay Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Liferay</h3>
+              <div class="company-position">Software QA Team Lead</div>
+              <div class="company-period">Feb 2023 - Dec 2023</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="liferay">See Details</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Dotz (Inicialmente Oculto) -->
+        <div class="timeline-item hidden-item">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/dotz_logo.png" alt="Dotz Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Dotz</h3>
+              <div class="company-position">Software QA Team Lead</div>
+              <div class="company-period">Jul 2021 - Dec 2022</div>
+              <div class="company-position">QA Test Engineer</div>
+              <div class="company-period">Jan 2021 - Jul 2021</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="dotz">See Details</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Concrete (Inicialmente Oculto) -->
+        <div class="timeline-item hidden-item">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/concrete_logo.png" alt="Concrete Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Concrete</h3>
+              <div class="company-position">Quality Assurance Test Engineer</div>
+              <div class="company-period">Sep 2020 - Jan 2021</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="concrete">See Details</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Mesa (Inicialmente Oculto) -->
+        <div class="timeline-item hidden-item">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/mesa_logo.png" alt="Mesa Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Mesa Mobile Thinking</h3>
+              <div class="company-position">Software QA Team Lead</div>
+              <div class="company-period">Aug 2019 - Sep 2020</div>
+              <div class="company-position">QA Test Engineer</div>
+              <div class="company-period">Dec 2018 - Aug 2019</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="mesa">See Details</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Accenture (Inicialmente Oculto) -->
+        <div class="timeline-item hidden-item">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/accenture_logo.png" alt="Accenture Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Accenture</h3>
+              <div class="company-position">Quality Assurance Test Engineer</div>
+              <div class="company-period">Oct 2017 - Dec 2018</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="accenture">See Details</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Shop da Saúde (Inicialmente Oculto) -->
+        <div class="timeline-item hidden-item">
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/shop_logo.png" alt="Shop da Saúde Logo" class="company-logo" loading="lazy">
+            <div class="company-details">
+              <h3 class="company-name">Shop da Saúde</h3>
+              <div class="company-position">Business Owner</div>
+              <div class="company-period">Dec 2014 - Dec 2016</div>
+              <div class="company-position">iOS Developer</div>
+              <div class="company-period">Dec 2013 - Dec 2014</div>
+              <button class="btn btn-sm btn-outline-primary mt-2 view-details" data-bs-toggle="modal" data-bs-target="#companyModal" data-company="shop">See Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="text-center mt-4">
+        <button id="view-all-btn" class="btn btn-primary btn-lg">
+          <span class="view-text">See Full Experience</span>
+          <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Modal de Detalhes da Empresa -->
+  <div class="modal fade" id="companyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="companyModalLabel">Detalhes da Empresa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="company-modal-content">
+            <div class="text-center mb-4">
+              <img id="modal-company-logo" src="" alt="Company Logo" class="img-fluid mb-3" style="max-height: 100px;">
+              <h4 id="modal-company-name"></h4>
+            </div>
+            <div id="modal-company-content">
+              <!-- Conteúdo será carregado dinamicamente via JavaScript -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Estilos da Seção Companies */
+    .companies-section {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-title {
+      font-weight: 700;
+      color: #2c3e50;
+      position: relative;
+      padding-bottom: 15px;
+      font-size: 2rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: #4e73df;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: #e9ecef;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+      z-index: 1;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    
+    .timeline-item.current .timeline-card {
+      border: 2px solid #4e73df;
+    }
+    
+    .timeline-card {
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .company-logo-container {
+      position: relative;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .company-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+      padding: 12px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eee;
+    }
+    
+    .current-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #4e73df;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .company-details {
+      flex: 1;
+    }
+    
+    .company-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+    
+    .company-position {
+      font-size: 0.95rem;
+      color: #4e73df;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .company-period {
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    
+    .view-details {
+      transition: all 0.2s ease;
+    }
+    
+    .view-details:hover {
+      background-color: #4e73df;
+      color: white;
+    }
+    
+    .hidden-item {
+      display: none;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .timeline::before {
+        left: 40px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 30px;
+        text-align: left !important;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-card {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .timeline-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .company-logo-container {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animação dos itens da timeline ao scroll
+      const animateTimelineItems = function() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        timelineItems.forEach((item, index) => {
+          const itemPosition = item.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+          
+          if (itemPosition < screenPosition) {
+            setTimeout(() => {
+              item.classList.add('visible');
+            }, 150 * index);
+          }
+        });
+      };
+  
+      // Mostrar/ocultar experiência completa - CÓDIGO CORRIGIDO
+      const viewAllBtn = document.getElementById('view-all-btn');
+      if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', function() {
+          const hiddenItems = document.querySelectorAll('.hidden-item');
+          const viewText = this.querySelector('.view-text');
+          const spinner = this.querySelector('.spinner-border');
+          
+          // Verifica se está mostrando todos ou não
+          const isShowingAll = viewText.textContent === 'Mostrar Menos';
+          
+          if (isShowingAll) {
+            // Se já está mostrando tudo, oculta os itens extras
+            hiddenItems.forEach(item => {
+              item.classList.remove('visible');
+              item.style.display = 'none';
+            });
+            viewText.textContent = 'Ver Experiência Completa';
+          } else {
+            // Mostra loading
+            this.disabled = true;
+            viewText.textContent = 'Carregando...';
+            spinner.classList.remove('d-none');
+            
+            // Mostra os itens ocultos com um pequeno delay para animação
+            setTimeout(() => {
+              hiddenItems.forEach((item, index) => {
+                setTimeout(() => {
+                  item.style.display = 'block';
+                  // Força o recálculo do layout para a animação funcionar
+                  void item.offsetWidth;
+                  item.classList.add('visible');
+                }, 100 * index);
+              });
+              
+              this.disabled = false;
+              viewText.textContent = 'Mostrar Menos';
+              spinner.classList.add('d-none');
+              
+              // Atualiza animação para os novos itens
+              animateTimelineItems();
+            }, 300);
+          }
+        });
+      }
+  
+      // Configura o modal de detalhes
+      const companyModal = document.getElementById('companyModal');
+      if (companyModal) {
+        companyModal.addEventListener('show.bs.modal', function(event) {
+          const button = event.relatedTarget;
+          const company = button.getAttribute('data-company');
+          
+          // Aqui você pode buscar os dados dinamicamente ou usar um objeto com as informações
+          const companyData = {
+            'ciand': {
+              name: 'CI&T',
+              logo: 'ciand_logo.png',
+              content: `
+                <h5 class="mb-3">Quality Assurance Test Engineer</h5>
+                <p><strong>Período:</strong> Abril 2024 - Presente</p>
+                <div class="mb-3">
+                  <h6>Principais Responsabilidades:</h6>
+                  <ul>
+                    <li>Desenvolvimento e execução de testes automatizados</li>
+                    <li>Garantia de qualidade em projetos de grande escala</li>
+                    <li>Colaboração com equipes multidisciplinares</li>
+                  </ul>
+                </div>
+              `
+            },
+          };
+          
+          // Atualiza o modal com os dados da empresa
+          if (companyData[company]) {
+            document.getElementById('modal-company-name').textContent = companyData[company].name;
+            document.getElementById('modal-company-content').innerHTML = companyData[company].content;
+            const logoImg = document.getElementById('modal-company-logo');
+            logoImg.src = `assets/img/companies/thumbnails/${companyData[company].logo}`;
+            logoImg.alt = `${companyData[company].name} Logo`;
+          }
+        });
+      }
+      
+      // Inicializa animações
+      animateTimelineItems();
+      window.addEventListener('scroll', animateTimelineItems);
+    });
+  </script>
     
     <style>
         /* Oculta os itens com a classe .hidden-item */
@@ -460,15 +819,7 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script>
-        document.getElementById('view-all-btn').addEventListener('click', function () {
-            const hiddenItems = document.querySelectorAll('.hidden-item');
-            hiddenItems.forEach(item => {
-                item.style.display = (item.style.display === 'none' || item.style.display === '') ? 'block' : 'none';
-            });
-            this.textContent = (this.textContent === 'View All') ? 'Show Less' : 'View All';
-        });
-    </script>
+
     <script>
         document.getElementById('view-all-skills-btn').addEventListener('click', function () {
             const hiddenItems = document.querySelectorAll('.hidden-item');
