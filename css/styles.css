@@ -4836,6 +4836,19 @@ textarea.form-control-lg {
   border-radius: var(--bs-list-group-border-radius);
 }
 
+.disabled-skill {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.disabled-skill .progress-bar {
+  background-color: #e9ecef !important;
+}
+
+.disabled-skill .text-muted {
+  color: #6c757d !important;
+}
+
 .list-group-numbered {
   list-style-type: none;
   counter-reset: section;

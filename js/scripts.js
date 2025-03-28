@@ -4,6 +4,20 @@
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
 */
 
+  // Carrega o conteúdo da seção Companies
+  fetch('partials/companies-section.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('companies-section-container').innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading companies section:', error);
+      document.getElementById('companies-section-container').innerHTML = `
+        <p class="text-center text-muted">
+          Could not load professional experience. Please try again later.
+        </p>
+      `;
+    });
 document.addEventListener('DOMContentLoaded', function() {
     // =============================================
     // Navigation Functions
@@ -97,33 +111,65 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
     // =============================================
-    // Companies Section
+    // Companies Section - ATUALIZADO
     // =============================================
     function setupCompaniesToggle() {
-        const btn = document.getElementById('view-companies-btn');
-        const companiesContainer = document.getElementById('companies-container');
+        const btn = document.getElementById('view-all-btn'); // Alterado para o ID correto
+        const hiddenItems = document.querySelectorAll('.timeline-item.hidden-item');
         
-        if (btn && companiesContainer) {
-            btn.addEventListener('click', async function() {
-                try {
-                    btn.disabled = true;
-                    btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+        if (btn && hiddenItems.length > 0) {
+            let isShowingAll = false;
+            
+            btn.addEventListener('click', function() {
+                const viewText = btn.querySelector('.view-text');
+                const spinner = btn.querySelector('.spinner-border');
+                
+                // Mostra loading
+                btn.disabled = true;
+                viewText.textContent = 'Loading...';
+                spinner.classList.remove('d-none');
+                
+                // Alterna entre mostrar/ocultar
+                isShowingAll = !isShowingAll;
+                
+                setTimeout(() => {
+                    hiddenItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.display = isShowingAll ? 'block' : 'none';
+                            // Força o recálculo do layout para animação
+                            void item.offsetWidth;
+                            item.classList.toggle('visible', isShowingAll);
+                        }, 100 * index);
+                    });
                     
-                    const response = await fetch('partials/companies-section.html');
-                    if (!response.ok) throw new Error('Failed to load');
-                    
-                    companiesContainer.innerHTML = await response.text();
-                    btn.style.display = 'none';
-                } catch (error) {
-                    console.error('Error:', error);
-                    companiesContainer.innerHTML = '<p class="text-center text-danger">Error loading companies</p>';
-                    btn.textContent = 'Try Again';
-                } finally {
+                    // Atualiza texto do botão
                     btn.disabled = false;
-                }
+                    viewText.textContent = isShowingAll ? 'Show Less' : 'See Full Experience';
+                    spinner.classList.add('d-none');
+                    
+                    // Anima os itens visíveis
+                    animateTimelineItems();
+                }, 300);
             });
         }
+    }
+
+    // Função para animar os itens da timeline
+    function animateTimelineItems() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        timelineItems.forEach((item, index) => {
+            const itemPosition = item.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (itemPosition < screenPosition) {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, 150 * index);
+            }
+        });
     }
 
     // =============================================
@@ -141,15 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            // Carrega o conteúdo de companies.html
-            fetch('companies.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('companies-placeholder').innerHTML = data;
-                })
-                .catch(error => console.error('Erro ao carregar o conteúdo:', error));
         });
     };
 
@@ -174,6 +211,10 @@ document.addEventListener('DOMContentLoaded', function() {
         initTooltips();
         setupSkillsToggle();
         setupCompaniesToggle();
+        animateTimelineItems(); // Inicializa animações
+        
+        // Adiciona listener para animação durante o scroll
+        window.addEventListener('scroll', animateTimelineItems);
     };
 
     // Start everything
