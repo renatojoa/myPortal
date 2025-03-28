@@ -295,48 +295,59 @@
         </div>
         </div>
     </header>
-     <!-- Skills Section -->
+
+    <!-- Skills Section -->
 <section class="page-section" id="skills">
     <div class="container px-4 px-lg-5">
         <h2 class="text-center mt-0">Skills and Tools</h2>
-        <div class="row gx-4 gx-lg-5">
-            
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Programming Language</h3>
-                            <p class="text-muted mb-0">Python, Robot Framework, Ruby, Java</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">IDE</h3>
-                            <p class="text-muted mb-0">Vscode, PyCharm, Athom, Intelij, Eclipse.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Test Plataform</h3>
-                            <p class="text-muted mb-0">Browserstack, AWS Farm, Android Studio, XCode, Physical Device!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">API Testing</h3>
-                            <p class="text-muted mb-0">Postman, Blazemeter, Insomnia, Swagger</p>
-                        </div>
+        
+        <!-- Conteúdo Resumido -->
+        <div id="skills-summary">
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Programming Language</h3>
+                        <p class="text-muted mb-0">Python, Robot Framework, Ruby, Java</p>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">IDE</h3>
+                        <p class="text-muted mb-0">Vscode, PyCharm, Athom, Intelij, Eclipse.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Test Platform</h3>
+                        <p class="text-muted mb-0">Browserstack, AWS Farm, Android Studio, XCode, Physical Device!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">API Testing</h3>
+                        <p class="text-muted mb-0">Postman, Blazemeter, Insomnia, Swagger</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão de alternar -->
+        <div class="text-center mt-4">
             <button id="view-all-skills-btn" class="btn btn-xl btn-primary">View All Skills</button>
         </div>
     </div>
 </section>
 
+<!-- Container para conteúdo detalhado (inicialmente oculto) -->
+<div id="skills-details-container" style="display: none;"></div>
+
 <!-- Container para o conteúdo detalhado (inicialmente vazio) -->
-<div id="skills-details-container"></div>
+<!-- Container para conteúdo detalhado -->
+<div id="skills-details-container" class="container px-4 px-lg-5"></div>
 
     <!-- Call to action-->
     <section class="page-section bg-dark text-white">

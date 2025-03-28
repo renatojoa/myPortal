@@ -55,63 +55,46 @@ document.addEventListener('DOMContentLoaded', function() {
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
     });
-
+    
     function setupSkillsToggle() {
         const btn = document.getElementById('view-all-skills-btn');
-        const skillsSection = document.getElementById('skills');
+        const skillsSummary = document.getElementById('skills-summary');
         const detailsContainer = document.getElementById('skills-details-container');
-        
-        if (btn && skillsSection && detailsContainer) {
-            // Estado inicial
-            detailsContainer.style.display = 'none';
-            btn.textContent = 'View All Skills in Detail';
-            
+    
+        if (btn && skillsSummary && detailsContainer) {
+            let isDetailedView = false;
+    
             btn.addEventListener('click', async function() {
-                const isDetailsVisible = detailsContainer.style.display === 'block';
-                
-                // Se estiver mostrando detalhes, apenas alterna
-                if (isDetailsVisible) {
-                    toggleVisibility();
-                    return;
-                }
-                
-                // Se for a primeira vez, carrega o conteúdo
-                if (detailsContainer.innerHTML === '') {
-                    try {
+                try {
+                    // Carrega conteúdo apenas na primeira vez
+                    if (detailsContainer.innerHTML === '') {
                         btn.disabled = true;
                         btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
                         
                         const response = await fetch('partials/skills-section.html');
                         if (!response.ok) throw new Error('Failed to load');
-                        
                         detailsContainer.innerHTML = await response.text();
-                    } catch (error) {
-                        console.error('Error:', error);
-                        detailsContainer.innerHTML = '<p class="text-center text-danger">Error loading content</p>';
-                    } finally {
-                        btn.disabled = false;
                     }
-                }
-                
-                toggleVisibility();
-            });
     
-            function toggleVisibility() {
-                const isDetailsVisible = detailsContainer.style.display === 'block';
-                
-                skillsSection.style.display = isDetailsVisible ? 'block' : 'none';
-                detailsContainer.style.display = isDetailsVisible ? 'none' : 'block';
-                
-                // Atualiza o texto do botão
-                btn.textContent = isDetailsVisible ? 'View All Skills in Detail' : 'Show Less Skills';
-                
-                // Scroll suave quando mostra os detalhes
-                if (!isDetailsVisible) {
-                    setTimeout(() => {
+                    // Alterna entre as views
+                    isDetailedView = !isDetailedView;
+                    
+                    skillsSummary.style.display = isDetailedView ? 'none' : 'block';
+                    detailsContainer.style.display = isDetailedView ? 'block' : 'none';
+                    btn.textContent = isDetailedView ? 'Show Less Skills' : 'View All Skills';
+    
+                    // Scroll suave se necessário
+                    if (isDetailedView) {
                         detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    detailsContainer.innerHTML = '<p class="text-center text-danger">Error loading content</p>';
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = isDetailedView ? 'Show Less Skills' : 'View All Skills';
                 }
-            }
+            });
         }
     }
     // =============================================
