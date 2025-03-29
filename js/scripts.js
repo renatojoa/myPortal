@@ -153,9 +153,9 @@ function setupSkillsToggle() {
                 detailsContainer.style.display = isDetailedView ? 'block' : 'none';
                 btn.textContent = isDetailedView ? 'Show Less Skills' : 'View All Skills';
 
-                // Scroll suave se necessário
+                // Scroll to the button position (now at bottom) if expanding
                 if (isDetailedView) {
-                    detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
             } catch (error) {
                 console.error('Error:', error);
