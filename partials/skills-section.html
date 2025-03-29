@@ -1,7 +1,9 @@
 <!-- partials/skills-section.html -->
+<link href="../css/skills-style.css" rel="stylesheet">
+
 <div id="detailed-skills-content">
     
-    <!-- Programming Languages -->
+    <!-- Programming Languages Section -->
     <section class="skill-detail py-5">
         <div class="container px-4 px-lg-5">
             <div class="row gx-5 align-items-center">
@@ -10,25 +12,25 @@
                     <div class="row g-3">
                         <div class="col-6 text-center">
                             <div class="skill-img-container p-3 bg-light rounded">
-                                <img src="assets/img/skills/pl/python.png" alt="Python" class="img-fluid skill-image" style="max-height: 80px;">
+                                <img src="assets/img/skills/pl/python.png" alt="Python" class="img-fluid skill-image">
                                 <div class="mt-2 fw-bold">Python</div>
                             </div>
                         </div>
                         <div class="col-6 text-center">
                             <div class="skill-img-container p-3 bg-light rounded">
-                                <img src="assets/img/skills/pl/robot.png" alt="Robot Framework" class="img-fluid skill-image" style="max-height: 80px;">
+                                <img src="assets/img/skills/pl/robot.png" alt="Robot Framework" class="img-fluid skill-image">
                                 <div class="mt-2 fw-bold">Robot</div>
                             </div>
                         </div>
                         <div class="col-6 text-center">
                             <div class="skill-img-container p-3 bg-light rounded">
-                                <img src="assets/img/skills/pl/java.png" alt="Java" class="img-fluid skill-image" style="max-height: 80px;">
+                                <img src="assets/img/skills/pl/java.png" alt="Java" class="img-fluid skill-image">
                                 <div class="mt-2 fw-bold">Java</div>
                             </div>
                         </div>
                         <div class="col-6 text-center">
                             <div class="skill-img-container p-3 bg-light rounded">
-                                <img src="assets/img/skills/pl/ruby.jpg" alt="Ruby" class="img-fluid skill-image" style="max-height: 80px;">
+                                <img src="assets/img/skills/pl/ruby.jpg" alt="Ruby" class="img-fluid skill-image">
                                 <div class="mt-2 fw-bold">Ruby</div>
                             </div>
                         </div>
@@ -40,8 +42,8 @@
                     <h2 class="mb-4">Programming Languages Expertise</h2>
                     <div class="d-flex justify-content-end mb-3">
                         <span class="d-flex align-items-center">
-                            <span class="me-2">Loving Percentage</span>
-                            <span>❤️</span>
+                            <span class="me-2">Skill Level</span>
+                            <span>⭐</span>
                         </span>
                     </div>
                     
@@ -56,7 +58,7 @@
                         </div>
                     </div>
 
-                    <!-- Robot -->
+                    <!-- Robot Framework -->
                     <div class="skill-progress mb-4">
                         <div class="d-flex justify-content-between mb-2">
                             <span>Robot Framework</span>
@@ -77,271 +79,242 @@
                             <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"></div>
                         </div>
                     </div>
+                    
                     <!-- Java -->
                     <div class="skill-progress mb-4">
                         <div class="d-flex justify-content-between mb-2">
-                            <span>Ruby</span>
+                            <span>Java</span>
                             <span>30%</span>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-primary" role="progressbar" style="width: 30%"></div>
                         </div>
                     </div>
-                    <!-- Cypress - Disabled -->
-<div class="skill-progress mb-4 disabled-skill">
-    <div class="d-flex justify-content-between mb-2">
-        <span class="text-muted">Cypress</span>
-        <span class="text-muted">🔜 (coming soon)</span>
-    </div>
-    <div class="progress">
-        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-</div>
+                    
+                    <!-- Coming Soon -->
+                    <div class="skill-progress mb-4 disabled-skill">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Cypress</span>
+                            <span class="text-muted">🔜 (coming soon)</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- IDE Section -->
-<section class="skill-detail py-5 bg-light" aria-labelledby="ide-section-title">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-5 align-items-center">
-            <!-- Text Content -->
-            <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0">
-                <h2 id="ide-section-title" class="mb-4">IDEs & Development Tools</h2>
-                <ul class="list-unstyled skill-features">
-                    <li class="mb-3">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
-                            <div>
-                                <strong>VS Code</strong> - Primary editor with extensions for Python, Robot Framework, and Java development
+    <!-- IDEs Section -->
+    <section class="skill-detail py-5 bg-light">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-5 align-items-center">
+                <!-- Text Content -->
+                <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0">
+                    <h2 class="mb-4">Development Environments</h2>
+                    <ul class="list-unstyled skill-features">
+                        <li class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
+                                <div>
+                                    <strong>VS Code</strong> - Primary editor with extensions for Python, Robot Framework, and Java
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="mb-3">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
-                            <div>
-                                <strong>PyCharm</strong> - Preferred IDE for complex Python projects with advanced debugging
+                        </li>
+                        <li class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
+                                <div>
+                                    <strong>PyCharm</strong> - Preferred IDE for complex Python projects with advanced debugging
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="mb-3">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
-                            <div>
-                                <strong>IntelliJ IDEA</strong> - Main IDE for Java development with excellent refactoring tools
+                        </li>
+                        <li class="mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
+                                <div>
+                                    <strong>IntelliJ IDEA</strong> - Main IDE for Java development with excellent refactoring tools
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="mb-3">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
-                            <div>
-                                <strong>Eclipse</strong> - Alternative Java IDE for legacy projects
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
+                                <div>
+                                    <strong>Eclipse</strong> - Alternative Java IDE for legacy projects
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-primary mt-1 me-2"></i>
-                            <div>
-                                <strong>Atom</strong> - Lightweight editor for quick edits and markdown files
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- IDE Logos Grid -->
-            <div class="col-lg-6 order-lg-2">
-                <div class="row g-3">
-                    <!-- VS Code -->
-                    <div class="col-6 col-md-4 text-center">
-                        <div class="skill-card p-3 h-100">
-                            <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
-                                <img src="assets/img/skills/ide/vscode.jpg" 
-                                     alt="Visual Studio Code Logo" 
-                                     class="img-fluid skill-image"
-                                     loading="lazy">
+                <!-- IDE Logos Grid -->
+                <div class="col-lg-6 order-lg-2">
+                    <div class="row g-3">
+                        <!-- VS Code -->
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="skill-card p-3 h-100">
+                                <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
+                                    <img src="assets/img/skills/ide/vscode.jpg" alt="VS Code" class="img-fluid" loading="lazy">
+                                </div>
+                                <h3 class="h6 mb-0">VS Code</h3>
                             </div>
-                            <h3 class="h6 mb-0">VS Code</h3>
                         </div>
-                    </div>
-
-                    <!-- PyCharm -->
-                    <div class="col-6 col-md-4 text-center">
-                        <div class="skill-card p-3 h-100">
-                            <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
-                                <img src="assets/img/skills/ide/pycharm.jpg" 
-                                     alt="PyCharm Logo" 
-                                     class="img-fluid skill-image"
-                                     loading="lazy">
+                        
+                        <!-- PyCharm -->
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="skill-card p-3 h-100">
+                                <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
+                                    <img src="assets/img/skills/ide/pycharm.jpg" alt="PyCharm" class="img-fluid" loading="lazy">
+                                </div>
+                                <h3 class="h6 mb-0">PyCharm</h3>
                             </div>
-                            <h3 class="h6 mb-0">PyCharm</h3>
                         </div>
-                    </div>
-
-                    <!-- IntelliJ -->
-                    <div class="col-6 col-md-4 text-center">
-                        <div class="skill-card p-3 h-100">
-                            <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
-                                <img src="assets/img/skills/ide/intelij.jpg" 
-                                     alt="IntelliJ IDEA Logo" 
-                                     class="img-fluid skill-image"
-                                     loading="lazy">
+                        
+                        <!-- IntelliJ -->
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="skill-card p-3 h-100">
+                                <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
+                                    <img src="assets/img/skills/ide/intelij.jpg" alt="IntelliJ" class="img-fluid" loading="lazy">
+                                </div>
+                                <h3 class="h6 mb-0">IntelliJ</h3>
                             </div>
-                            <h3 class="h6 mb-0">IntelliJ</h3>
                         </div>
-                    </div>
-
-                    <!-- Eclipse -->
-                    <div class="col-6 col-md-4 text-center">
-                        <div class="skill-card p-3 h-100">
-                            <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
-                                <img src="assets/img/skills/ide/eclipse.jpg" 
-                                     alt="Eclipse IDE Logo" 
-                                     class="img-fluid skill-image"
-                                     loading="lazy">
+                        
+                        <!-- Eclipse -->
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="skill-card p-3 h-100">
+                                <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
+                                    <img src="assets/img/skills/ide/eclipse.jpg" alt="Eclipse" class="img-fluid" loading="lazy">
+                                </div>
+                                <h3 class="h6 mb-0">Eclipse</h3>
                             </div>
-                            <h3 class="h6 mb-0">Eclipse</h3>
                         </div>
-                    </div>
-
-                    <!-- Atom -->
-                    <div class="col-6 col-md-4 text-center">
-                        <div class="skill-card p-3 h-100">
-                            <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
-                                <img src="assets/img/skills/ide/athom.png" 
-                                     alt="Atom Editor Logo" 
-                                     class="img-fluid skill-image"
-                                     loading="lazy">
+                        
+                        <!-- Atom -->
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="skill-card p-3 h-100">
+                                <div class="skill-img-container mx-auto bg-white rounded-3 p-3 mb-2">
+                                    <img src="assets/img/skills/ide/athom.png" alt="Atom" class="img-fluid" loading="lazy">
+                                </div>
+                                <h3 class="h6 mb-0">Atom</h3>
                             </div>
-                            <h3 class="h6 mb-0">Atom</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    /* Additional Styles */
-    .skill-detail {
-        transition: all 0.3s ease;
-    }
-    
-    .skill-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 0.5rem;
-    }
-    
-    .skill-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .skill-img-container {
-        transition: all 0.3s ease;
-        max-width: 100px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .skill-image {
-        max-height: 100%;
-        width: auto;
-        filter: grayscale(20%);
-        transition: filter 0.3s ease;
-    }
-    
-    .skill-card:hover .skill-image {
-        filter: grayscale(0%);
-    }
-    
-    .skill-features li {
-        padding: 0.5rem 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .skill-features li:last-child {
-        border-bottom: none;
-    }
-</style>
+    <!-- Test Platform Section -->
+    <section class="test-platform-section py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="text-center mb-4">
+                <h2 class="mb-4">Front/Back Test Platforms & Devices</h2>
+                <p class="lead text-muted">Testing tools plataform that usually work with</p>
+            </div>
 
-    <div id="skills-container"></div>
-            <!-- API Testing -->
-            <section class="skill-detail">
-                <div class="container px-4 px-lg-5">
-                    <div class="row gx-4 gx-lg-5 align-items-center">
-                        <div class="col-lg-6 order-lg-2">
-                            <img src="assets/img/skills/api-testing.jpg" alt="API Testing" class="img-fluid skill-image">
+            <div class="row g-4 platform-cards">
+                <!-- Locally Testing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card h-100">
+                        <div class="platform-header">
+                            <div class="platform-icon bg-primary-light">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <h3 class="platform-title">Locally Testing</h3>
                         </div>
-                        <div class="col-lg-6 order-lg-1">
-                            <h2>API Testing</h2>
-                            <p class="lead">Comprehensive API testing expertise with various tools:</p>
-                            <ul>
-                                <li><strong>Postman</strong>: For manual API testing, collections, and automation.</li>
-                                <li><strong>BlazeMeter</strong>: Performance testing and API load testing.</li>
-                                <li><strong>Insomnia</strong>: Alternative for API exploration and documentation.</li>
-                                <li><strong>Swagger</strong>: API documentation and testing.</li>
+                        <div class="platform-body">
+                            <ul class="platform-features">
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <span>XCode Simulator for iOS testing</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <span>Android Studio Emulator</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-primary"></i>
+                                    <span>Physical device testing</span>
+                                </li>
                             </ul>
+                            <div class="platform-logos">
+                                <img src="assets/img/skills/testFront/xcode.png" alt="XCode" loading="lazy">
+                                <img src="assets/img/skills/testFront/androids.png" alt="Android Studio" loading="lazy">
+                                <img src="assets/img/skills/testFront/appleandroid.png" alt="Physical Devices" loading="lazy">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <!-- Cloud Testing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card h-100">
+                        <div class="platform-header">
+                            <div class="platform-icon bg-success-light">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <h3 class="platform-title">Cloud Platforms</h3>
+                        </div>
+                        <div class="platform-body">
+                            <ul class="platform-features">
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>BrowserStack for cross-browser/device testing</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>AWS Device Farm</span>
+                                </li>
+                            </ul>
+                            <div class="platform-logos">
+                                <img src="assets/img/skills/testFront/browserstack.png" alt="BrowserStack" loading="lazy">
+                                <img src="assets/img/skills/testFront/aws.png" alt="AWS Device Farm" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Testing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card h-100">
+                        <div class="platform-header">
+                            <div class="platform-icon bg-warning-light">
+                                <i class="bi bi-device-hdd"></i>
+                            </div>
+                            <h3 class="platform-title">API Testing</h3>
+                        </div>
+                        <div class="platform-body">
+                            <ul class="platform-features">
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-warning"></i>
+                                    <span>Postman</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-warning"></i>
+                                    <span>Blazemeter</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-warning"></i>
+                                    <span>Insomnia</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle-fill text-warning"></i>
+                                    <span>Swagger</span>
+                                </li>
+                            </ul>
+                            <div class="platform-logos">
+                                <img src="assets/img/skills/testApi/postman.png" alt="Postman" loading="lazy">
+                                <img src="assets/img/skills/testApi/insomnia.png" alt="Insomnia" loading="lazy">
+                                <img src="assets/img/skills/testApi/blazemeter.png" alt="Blazemeter" loading="lazy">
+                                <img src="assets/img/skills/testApi/swagger.jpg" alt="Swagger" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 </div>
-
-<style>
-.skill-detail {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.skill-detail.bg-light {
-    background-color: #e9ecef !important;
-}
-
-.skill-img-container {
-    transition: transform 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.skill-img-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.skill-image {
-    object-fit: contain;
-    filter: grayscale(30%);
-    transition: filter 0.3s ease;
-}
-
-.skill-img-container:hover .skill-image {
-    filter: grayscale(0%);
-}
-
-.progress {
-    height: 8px;
-    border-radius: 4px;
-}
-
-.progress-bar {
-    border-radius: 4px;
-}
-
-#detailed-skills-container {
-    display: none; /* Inicialmente oculto até clicar no botão */
-}
-</style>
