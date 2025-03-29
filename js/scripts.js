@@ -4,20 +4,23 @@
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
 */
 
-  // Carrega o conteúdo da seção Companies
-  fetch('partials/companies-section.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('companies-section-container').innerHTML = html;
-    })
-    .catch(error => {
-      console.error('Error loading companies section:', error);
-      document.getElementById('companies-section-container').innerHTML = `
-        <p class="text-center text-muted">
-          Could not load professional experience. Please try again later.
-        </p>
-      `;
-    });
+  /// No scripts.js, substitua o fetch atual por:
+fetch('partials/companies-section.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('companies-section-container').innerHTML = html;
+  // Chama as funções de setup após o conteúdo ser carregado
+  setupCompaniesToggle();
+  animateTimelineItems();
+})
+.catch(error => {
+  console.error('Error loading companies section:', error);
+  document.getElementById('companies-section-container').innerHTML = `
+    <p class="text-center text-muted">
+      Could not load professional experience. Please try again later.
+    </p>
+  `;
+});
 document.addEventListener('DOMContentLoaded', function() {
     // =============================================
     // Navigation Functions
@@ -34,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             navbarCollapsible.classList.add('navbar-shrink');
         }
     };
+
+  
 
     // Initialize navbar shrink
     navbarShrink();
@@ -70,91 +75,137 @@ document.addEventListener('DOMContentLoaded', function() {
         elements: '#portfolio a.portfolio-box'
     });
     
-    function setupSkillsToggle() {
-        const btn = document.getElementById('view-all-skills-btn');
-        const skillsSummary = document.getElementById('skills-summary');
-        const detailsContainer = document.getElementById('skills-details-container');
     
-        if (btn && skillsSummary && detailsContainer) {
-            let isDetailedView = false;
+// =============================================
+// Companies Section Toggle (VERSÃO CORRETA - única)
+// =============================================
+function setupCompaniesToggle() {
+    const btn = document.getElementById('view-all-btn');
     
-            btn.addEventListener('click', async function() {
-                try {
-                    // Carrega conteúdo apenas na primeira vez
-                    if (detailsContainer.innerHTML === '') {
-                        btn.disabled = true;
-                        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
-                        
-                        const response = await fetch('partials/skills-section.html');
-                        if (!response.ok) throw new Error('Failed to load');
-                        detailsContainer.innerHTML = await response.text();
-                    }
-    
-                    // Alterna entre as views
-                    isDetailedView = !isDetailedView;
-                    
-                    skillsSummary.style.display = isDetailedView ? 'none' : 'block';
-                    detailsContainer.style.display = isDetailedView ? 'block' : 'none';
-                    btn.textContent = isDetailedView ? 'Show Less Skills' : 'View All Skills';
-    
-                    // Scroll suave se necessário
-                    if (isDetailedView) {
-                        detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    detailsContainer.innerHTML = '<p class="text-center text-danger">Error loading content</p>';
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = isDetailedView ? 'Show Less Skills' : 'View All Skills';
-                }
-            });
-        }
+    if (!btn) {
+        console.warn('View All button not found');
+        return;
     }
-
-    // =============================================
-    // Companies Section - ATUALIZADO
-    // =============================================
-    function setupCompaniesToggle() {
-        const btn = document.getElementById('view-all-btn'); // Alterado para o ID correto
-        const hiddenItems = document.querySelectorAll('.timeline-item.hidden-item');
+    
+    const hiddenItems = document.querySelectorAll('.timeline-item.hidden-item');
+    
+    if (hiddenItems.length === 0) {
+        console.warn('No hidden timeline items found');
+        return;
+    }
+    
+    let isShowingAll = false;
+    
+    btn.addEventListener('click', function() {
+        const viewText = btn.querySelector('.view-text') || btn;
+        const spinner = btn.querySelector('.spinner-border');
         
-        if (btn && hiddenItems.length > 0) {
-            let isShowingAll = false;
-            
-            btn.addEventListener('click', function() {
-                const viewText = btn.querySelector('.view-text');
-                const spinner = btn.querySelector('.spinner-border');
-                
-                // Mostra loading
-                btn.disabled = true;
-                viewText.textContent = 'Loading...';
-                spinner.classList.remove('d-none');
-                
-                // Alterna entre mostrar/ocultar
-                isShowingAll = !isShowingAll;
-                
+        // Mostra loading
+        btn.disabled = true;
+        if (viewText) viewText.textContent = 'Loading...';
+        if (spinner) spinner.classList.remove('d-none');
+        
+        // Alterna entre mostrar/ocultar
+        isShowingAll = !isShowingAll;
+        
+        setTimeout(() => {
+            hiddenItems.forEach((item, index) => {
                 setTimeout(() => {
-                    hiddenItems.forEach((item, index) => {
-                        setTimeout(() => {
-                            item.style.display = isShowingAll ? 'block' : 'none';
-                            // Força o recálculo do layout para animação
-                            void item.offsetWidth;
-                            item.classList.toggle('visible', isShowingAll);
-                        }, 100 * index);
-                    });
-                    
-                    // Atualiza texto do botão
-                    btn.disabled = false;
-                    viewText.textContent = isShowingAll ? 'Show Less' : 'See Full Experience';
-                    spinner.classList.add('d-none');
-                    
-                    // Anima os itens visíveis
-                    animateTimelineItems();
-                }, 300);
+                    item.style.display = isShowingAll ? 'block' : 'none';
+                    void item.offsetWidth;
+                    item.classList.toggle('visible', isShowingAll);
+                }, 100 * index);
             });
-        }
+            
+            // Atualiza texto do botão
+            btn.disabled = false;
+            if (viewText) viewText.textContent = isShowingAll ? 'Show Less' : 'See Full Experience';
+            if (spinner) spinner.classList.add('d-none');
+            
+            animateTimelineItems();
+        }, 300);
+    });
+}
+function setupSkillsToggle() {
+    const btn = document.getElementById('view-all-skills-btn');
+    const skillsSummary = document.getElementById('skills-summary');
+    const detailsContainer = document.getElementById('skills-details-container');
+
+    if (btn && skillsSummary && detailsContainer) {
+        let isDetailedView = false;
+
+        btn.addEventListener('click', async function() {
+            try {
+                // Carrega conteúdo apenas na primeira vez
+                if (detailsContainer.innerHTML === '') {
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+                    
+                    const response = await fetch('partials/skills-section.html');
+                    if (!response.ok) throw new Error('Failed to load');
+                    detailsContainer.innerHTML = await response.text();
+                }
+
+                // Alterna entre as views
+                isDetailedView = !isDetailedView;
+                
+                skillsSummary.style.display = isDetailedView ? 'none' : 'block';
+                detailsContainer.style.display = isDetailedView ? 'block' : 'none';
+                btn.textContent = isDetailedView ? 'Show Less Skills' : 'View All Skills';
+
+                // Scroll suave se necessário
+                if (isDetailedView) {
+                    detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                detailsContainer.innerHTML = '<p class="text-center text-danger">Error loading content</p>';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = isDetailedView ? 'Show Less Skills' : 'View All Skills';
+            }
+        });
     }
+}
+// =============================================
+// Timeline Animation
+// =============================================
+function animateTimelineItems() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+        const itemPosition = item.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (itemPosition < screenPosition) {
+            setTimeout(() => {
+                item.classList.add('visible');
+            }, 150 * index);
+        }
+    });
+}
+
+// =============================================
+// Load Companies Section
+// =============================================
+function loadCompaniesSection() {
+    fetch('partials/companies-section.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('companies-section-container').innerHTML = html;
+            // Configura os eventos após o conteúdo ser carregado
+            setupCompaniesToggle();
+            animateTimelineItems();
+        })
+        .catch(error => {
+            console.error('Error loading companies section:', error);
+            document.getElementById('companies-section-container').innerHTML = `
+                <p class="text-center text-muted">
+                    Could not load professional experience. Please try again later.
+                </p>
+            `;
+        });
+}
 
     // Função para animar os itens da timeline
     function animateTimelineItems() {
@@ -210,13 +261,11 @@ document.addEventListener('DOMContentLoaded', function() {
         initSmoothScrolling();
         initTooltips();
         setupSkillsToggle();
-        setupCompaniesToggle();
-        animateTimelineItems(); // Inicializa animações
+        loadCompaniesSection(); // Carrega a seção de empresas
+        animateTimelineItems();
         
-        // Adiciona listener para animação durante o scroll
         window.addEventListener('scroll', animateTimelineItems);
     };
-
-    // Start everything
+    
     init();
 });
