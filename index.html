@@ -149,9 +149,28 @@
 
 <!-- Inclua a seção HTML -->
 <div id="companies-section-container"></div>
-<script src="js/scripts.js"></script>
-<!-- Inclua o JavaScript no final do body -->
 
+<!-- Projects Section -->
+<!-- Projects Section -->
+<section class="page-section" id="projects">
+    <div class="container">
+        <h2 class="text-center mb-5">Projects</h2>
+        
+        <div class="projects-container" id="projects-container">
+            <!-- Projects will be inserted here via JavaScript -->
+        </div>
+        
+        <div id="load-more-container" class="mt-4">
+            <button id="load-more" class="btn btn-outline-primary">View More Projects</button>
+        </div>
+    </div>
+</section>
+
+<!-- Include CSS -->
+<link href="css/projects-sections.css" rel="stylesheet">
+
+<!-- Include JavaScript -->
+<script src="js/projects-section.js"></script>
 
 <!-- Skills Section -->
 <section class="page-section" id="skills">
@@ -329,6 +348,7 @@
             this.textContent = (this.textContent === 'View All') ? 'Show Less' : 'View All';
         });
     </script>
+    
 </body>
 
 </html>

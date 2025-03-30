@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         elements: '#portfolio a.portfolio-box'
     });
     
-    
 // =============================================
 // Companies Section Toggle (VERSÃO CORRETA - única)
 // =============================================
@@ -153,9 +152,9 @@ function setupSkillsToggle() {
                 detailsContainer.style.display = isDetailedView ? 'block' : 'none';
                 btn.textContent = isDetailedView ? 'Show Less Skills' : 'View All Skills';
 
-                // Scroll to the button position (now at bottom) if expanding
+                // Scroll suave se necessário
                 if (isDetailedView) {
-                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             } catch (error) {
                 console.error('Error:', error);
