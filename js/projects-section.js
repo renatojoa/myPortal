@@ -1,62 +1,132 @@
 document.addEventListener('DOMContentLoaded', function() {
     const projectsData = [
         {
+            id: 1,
+            title: "PIBIC",
+            description: "Java application to manage sending and receiving reports from researchers",
+            technologies: ["Java"],
+            imageUrl: "assets/img/projects/pibic_unicap_logo.png",
+            appleStoreUrl: "#",
+            androidStoreUrl: "#",
+            category: "Windows Application",
+            projectAvailable: false,
+            company: "Unicap",
+            currentlyWorking: false
+        },
+        {
+            id: 2,
+            title: "Shop da Saúde",
+            description: "Application returning to catalog and sale of hospital products",
+            technologies: ["Objective C","Swift"],
+            imageUrl: "assets/img/projects/shop_app_logo.png",
+            webUrl: "https://www.santander.com.br/cambio",
+            appleStoreUrl: "#",
+            androidStoreUrl: "#",
+            category: "Mobile",
+            projectAvailable: false,
+            company: "Shop",
+            currentlyWorking: false
+        },
+        {
+            id: 3,
+            title: "Santander Exchange",
+            description: "Solution for foreign exchange and international investment",
+            technologies: ["Java"],
+            imageUrl: "assets/img/projects/santander_cambio.jpg",
+            webUrl: "https://www.santander.com.br/cambio",
+            category: "Web",
+            projectAvailable: true,
+            company: "Accenture",
+            currentlyWorking: false
+        },
+        {
             id: 4,
             title: "Now Online",
-            description: "Streaming de vídeos - App Mobile",
+            description: "Video streaming - Mobile App",
             technologies: ["Java", "Appium"],
             imageUrl: "assets/img/projects/now_logo.png",
             appleStoreUrl: "https://apps.apple.com/app/now-online/id123456",
             androidStoreUrl: "https://play.google.com/store/apps/details?id=com.nowonline",
             category: "Mobile",
             projectAvailable: true,
-            company: "Accenture"
+            company: "Accenture",
+            currentlyWorking: false
         },
         {
             id: 5,
             title: "Colher de Chá",
-            description: "App de receitas - Mobile, Web, API",
-            technologies: ["React Native", "Node.js"],
+            description: "Recipe appication",
+            technologies: ["Mobile", "Web", "API"],
             imageUrl: "assets/img/projects/colher_de_cha_logo.png",
             appleStoreUrl: "",
             androidStoreUrl: "",
             category: "Mobile",
             projectAvailable: false,
-            company: "Mesa"
+            company: "Mesa",
+            currentlyWorking: false
         },
         {
             id: 6,
-            title: "Voltz",
-            description: "Controle de moto elétrica - App Híbrido",
+            title: "Voltz App",
+            description: "Electric motorcycle control - Hybrid App",
             technologies: ["Ionic", "API"],
             imageUrl: "assets/img/projects/voltz_logo.jpg",
             appleStoreUrl: "https://apps.apple.com/br/app/minha-voltz-app/id1549611990",
             androidStoreUrl: "#",
             category: "Mobile",
             projectAvailable: true,
-            company: "Mesa"
+            company: "Mesa",
+            currentlyWorking: false
         },
         {
-            id: 12,
-            title: "Liferay",
-            description: "Open-source company that develops enterprise portal technology.",
+            id: 7,
+            title: "Dotz App",
+            description: "Application for accumulating and exchanging points on online sites",
+            technologies: ["Robot Framework", "API", "Mobile"],
+            imageUrl: "assets/img/projects/dotz_logo.png",
+            appleStoreUrl: "https://apps.apple.com/br/app/dotz-plataforma-de-benef%C3%ADcios/id1446442555",
+            androidStoreUrl: "https://play.google.com/store/apps/details?id=br.com.dotz.dotzpay&hl=pt_BR",
+            category: "Mobile",
+            projectAvailable: true,
+            company: "Dotz",
+            currentlyWorking: false
+        },
+        {
+            id: 8,
+            title: "Via Varejo Portal",
+            description: "Sistem manage products and storage amount",
+            technologies: ["Ruby", "API"],
+            imageUrl: "assets/img/projects/via_varejo_logo.png",
+            appleStoreUrl: "#",
+            androidStoreUrl: "#",
+            category: "API",
+            projectAvailable: false,
+            company: "Concrete",
+            currentlyWorking: false
+        },
+        {
+            id: 9,
+            title: "Liferay Portal",
+            description: "Open-source company that develops enterprise portal technology",
             technologies: ["Java", "Poshi", "API", "Web"],
             imageUrl: "assets/img/projects/liferay_logo.png",
             webUrl: "https://www.liferay.com",
             category: "Web",
             projectAvailable: true,
-            company: "Dotz"
+            company: "Liferay",
+            currentlyWorking: false
         },
         {
-            id: 13,
-            title: "Currently Working (under seizure)",
+            id: 10,
+            title: "Subscription Management Service (Confidential)",
             description: "A subscription management application",
             technologies: ["Browserstack Automation", "API"],
             imageUrl: "assets/img/others/under_secret.png",
             webUrl: "#",
             category: "Web",
             projectAvailable: false,
-            company: "CIANDT"
+            company: "CIANDT",
+            currentlyWorking: true  // Only this project is marked as current
         }
     ].reverse();
 
@@ -116,9 +186,12 @@ document.addEventListener('DOMContentLoaded', function() {
             projectEl.style.animationDelay = `${index * 0.1}s`;
             projectEl.innerHTML = `
                 <div class="card-img-container">
-                    <img src="${project.imageUrl}" alt="${project.title}" class="card-img-top" 
-                         onerror="this.src='assets/img/projects/default.jpg'">
-                </div>
+                ${project.currentlyWorking ? 
+                    '<div class="currently-working-badge">Currently Working</div>' : ''}
+                <img src="${project.imageUrl}" alt="${project.title}" class="card-img-top" 
+                     onerror="this.src='assets/img/projects/default.jpg'">
+            </div>
+
                 <div class="card-body">
                     <h3 class="card-title">${project.title}</h3>
                     <p class="card-text">${project.description}</p>
