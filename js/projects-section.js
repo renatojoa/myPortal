@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 5,
             title: "Colher de Chá",
-            description: "Recipe appication",
+            description: "Recipe application",
             technologies: ["Mobile", "Web", "API"],
             imageUrl: "assets/img/projects/colher_de_cha_logo.png",
             appleStoreUrl: "",
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 6,
-            title: "Voltz App",
-            description: "Electric motorcycle control - Hybrid App",
-            technologies: ["Ionic", "API"],
-            imageUrl: "assets/img/projects/voltz_logo.jpg",
-            appleStoreUrl: "https://apps.apple.com/br/app/minha-voltz-app/id1549611990",
-            androidStoreUrl: "#",
+            title: "Track & Field - TF Sports",
+            description: "TFSports app. Access and create classes and events, with the best coaches, wherever and whenever.",
+            technologies: ["Mobile", "Web", "API"],
+            imageUrl: "assets/img/projects/tf_sports_logo.png",
+            appleStoreUrl: "https://apps.apple.com/br/app/tfsports/id1251078517",
+            androidStoreUrl: "https://play.google.com/store/apps/details?id=br.com.tfsports.customer&hl=pt_BR",
             category: "Mobile",
             projectAvailable: true,
             company: "Mesa",
@@ -80,6 +80,56 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 7,
+            title: "Grupo Parvi",
+            description: "An automative and residencial assurance application",
+            technologies: ["Mobile", "Web", "API"],
+            imageUrl: "assets/img/projects/parvi_logo.png",
+            category: "Mobile",
+            projectAvailable: false,
+            company: "Mesa",
+            currentlyWorking: false
+        },
+        {
+            id: 8,
+            title: "Zero Bank",
+            description: "Zro Bank | Digital Bank with Real and Cryptocurrency Accounts With Cryptocurrency to Real conversions, and vice versa",
+            technologies: ["Mobile"],
+            imageUrl: "assets/img/projects/zero_bank_logo.jpg",
+            appleStoreUrl: "https://apps.apple.com/br/app/zro-bank/id1528780452?l=en",
+            androidStoreUrl: "https://play.google.com/store/apps/details?id=br.com.zrobank.app&hl=pt_BR",
+            category: "Mobile",
+            projectAvailable: true,
+            company: "Mesa",
+            currentlyWorking: false
+        },
+        {
+            id: 9,
+            title: "Voltz App",
+            description: "Electric motorcycle control - Hybrid App",
+            technologies: ["Ionic", "API"],
+            imageUrl: "assets/img/projects/voltz_logo.jpg",
+            appleStoreUrl: "https://apps.apple.com/br/app/minha-voltz-app/id1549611990",
+            androidStoreUrl: "https://play.google.com/store/apps/details?id=voltzmotors.app.com",
+            category: "Mobile",
+            projectAvailable: true,
+            company: "Mesa",
+            currentlyWorking: false
+        },
+        {
+            id: 10,
+            title: "Via Varejo Portal",
+            description: "System manage marketplace and products and storage amount",
+            technologies: ["Ruby", "API"],
+            imageUrl: "assets/img/projects/via_varejo_logo.png",
+            appleStoreUrl: "#",
+            androidStoreUrl: "#",
+            category: "API",
+            projectAvailable: false,
+            company: "Concrete",
+            currentlyWorking: false
+        },
+        {
+            id: 11,
             title: "Dotz App",
             description: "Application for accumulating and exchanging points on online sites",
             technologies: ["Robot Framework", "API", "Mobile"],
@@ -92,20 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentlyWorking: false
         },
         {
-            id: 8,
-            title: "Via Varejo Portal",
-            description: "Sistem manage products and storage amount",
-            technologies: ["Ruby", "API"],
-            imageUrl: "assets/img/projects/via_varejo_logo.png",
-            appleStoreUrl: "#",
-            androidStoreUrl: "#",
-            category: "API",
-            projectAvailable: false,
-            company: "Concrete",
-            currentlyWorking: false
-        },
-        {
-            id: 9,
+            id: 12,
             title: "Liferay Portal",
             description: "Open-source company that develops enterprise portal technology",
             technologies: ["Java", "Poshi", "API", "Web"],
@@ -117,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentlyWorking: false
         },
         {
-            id: 10,
+            id: 13,
             title: "Subscription Management Service (Confidential)",
             description: "A subscription management application",
             technologies: ["Browserstack Automation", "API"],
@@ -126,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "Web",
             projectAvailable: false,
             company: "CIANDT",
-            currentlyWorking: true  // Only this project is marked as current
+            currentlyWorking: true
         }
     ].reverse();
 
