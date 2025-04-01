@@ -260,10 +260,13 @@ document.addEventListener('DOMContentLoaded', function() {
             container.classList.remove('show-all');
         }
     }
-
-    loadMoreBtn.addEventListener('click', function() {
+    loadMoreBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do clique
         isShowingAll = !isShowingAll;
         renderProjects(isShowingAll);
+        
+        // Opcional: Rolar suavemente de volta para o topo dos projetos se necessário
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     renderProjects();
