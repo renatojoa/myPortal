@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ].reverse();
 
+    
     const container = document.getElementById('projects-container');
     const loadMoreBtn = document.getElementById('load-more');
     const initialCount = 4;
