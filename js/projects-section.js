@@ -155,6 +155,18 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 13,
+            title: "BT Group Subscriptions Management",
+            description: "A subscription management application",
+            technologies: ["Browserstack Automation", "API"],
+            imageUrl: "assets/img/projects/btgroup_logo.png",
+            webUrl: "https://ee.co.uk/broadband",
+            category: "Backend",
+            projectAvailable: true,
+            company: "CIANDT",
+            currentlyWorking: true
+        },
+        {
+            id: 14,
             title: "Subscription Management Service (Confidential)",
             description: "A subscription management application",
             technologies: ["Browserstack Automation", "API"],
