@@ -173,6 +173,94 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Companies from Supabase ───────────────────────────
+  function calcDuration(start, end) {
+    if (!start) return '';
+    try {
+      var s = new Date(start);
+      var e = (end && end.toLowerCase() !== 'present') ? new Date(end) : new Date();
+      var months = (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth());
+      if (months < 1) months = 1;
+      if (months < 12) return months + ' mo';
+      var yrs = Math.round((months / 12) * 10) / 10;
+      return yrs + ' yr' + (yrs >= 2 ? 's' : '');
+    } catch (_) { return ''; }
+  }
+
+  async function fetchWikiSummary(name) {
+    var encoded = encodeURIComponent(name);
+    try {
+      var r = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encoded);
+      if (r.ok) {
+        var d = await r.json();
+        if (d.type !== 'disambiguation' && d.extract) return d;
+      }
+    } catch (_) {}
+    try {
+      var s = await fetch('https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=' +
+        encodeURIComponent(name + ' company') + '&format=json&origin=*&srlimit=1&srprop=snippet');
+      var sd = await s.json();
+      if (sd.query.search.length) {
+        var r2 = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' +
+          encodeURIComponent(sd.query.search[0].title));
+        if (r2.ok) { var d2 = await r2.json(); if (d2.extract) return d2; }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  async function openCompanyModal(c) {
+    var modalEl = document.getElementById('companyModal');
+    var body = document.getElementById('companyModalBody');
+    if (!modalEl || !body) return;
+
+    var dur = calcDuration(c.period_start, c.period_end);
+    var durSpan = dur ? ' <span class="company-duration">' + dur + '</span>' : '';
+    var currentBadge = c.current
+      ? '<span class="badge-current ms-1">' + (window.t ? window.t('badge_current') : 'Current') + '</span>'
+      : '';
+
+    body.innerHTML =
+      '<div class="company-modal-header">' +
+        '<img class="company-modal-logo" src="' + esc(c.logo_url) + '" alt="' + esc(c.name) + '"' +
+          ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
+        '<div>' +
+          '<h4 class="company-modal-name">' + esc(c.name) + currentBadge + durSpan + '</h4>' +
+          '<p class="company-modal-role">' + esc(c.position) + '</p>' +
+          '<p class="company-modal-period">' + esc(c.period_start) + ' – ' + esc(c.period_end) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="company-modal-wiki" id="wikiSection">' +
+        '<div class="wiki-loading">' +
+          '<div class="skeleton-block" style="height:11px;margin-bottom:8px"></div>' +
+          '<div class="skeleton-block" style="height:11px;margin-bottom:8px;width:88%"></div>' +
+          '<div class="skeleton-block" style="height:11px;width:72%"></div>' +
+        '</div>' +
+      '</div>';
+
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+
+    var wiki = await fetchWikiSummary(c.name);
+    var wikiEl = document.getElementById('wikiSection');
+    if (!wikiEl) return;
+
+    if (wiki) {
+      var thumb = (wiki.thumbnail && wiki.thumbnail.source)
+        ? '<img class="wiki-thumbnail" src="' + wiki.thumbnail.source + '" alt="' + esc(wiki.title) + '" loading="lazy">'
+        : '';
+      var link = wiki.content_urls
+        ? '<a class="wiki-link" href="' + wiki.content_urls.desktop.page + '" target="_blank" rel="noopener">Read more on Wikipedia →</a>'
+        : '';
+      wikiEl.innerHTML =
+        thumb +
+        '<p class="wiki-extract">' + esc(wiki.extract) + '</p>' +
+        link;
+    } else if (c.description) {
+      wikiEl.innerHTML = '<p class="wiki-extract">' + esc(c.description) + '</p>';
+    } else {
+      wikiEl.innerHTML = '<p class="wiki-no-data">No additional information available.</p>';
+    }
+  }
+
   async function initCompaniesFromDB() {
     const list = document.getElementById('timeline-list');
     if (!list || typeof fetchCompanies === 'undefined') return;
@@ -180,20 +268,23 @@ document.addEventListener('DOMContentLoaded', function () {
       const companies = await fetchCompanies();
       const visible = companies.filter(function (c) { return !c.hidden; });
       const hidden = companies.filter(function (c) { return c.hidden; });
+      const allCompanies = visible.concat(hidden);
 
-      function buildItem(c, isHidden) {
+      function buildItem(c, isHidden, idx) {
         const currentBadge = c.current
           ? '<span class="badge-current" data-i18n="badge_current">' + (window.t ? window.t('badge_current') : 'Current') + '</span>'
           : '';
         const currentClass = c.current ? ' current' : '';
-        return '<div class="timeline-item' + currentClass + '"' +
+        const dur = calcDuration(c.period_start, c.period_end);
+        const durSpan = dur ? ' <span class="company-duration">' + dur + '</span>' : '';
+        return '<div class="timeline-item' + currentClass + '" data-company-idx="' + idx + '"' +
           (isHidden ? ' style="display:none"' : '') + '>' +
           '<div class="timeline-dot"></div>' +
           '<div class="timeline-card">' +
             '<img src="' + esc(c.logo_url) + '" alt="' + esc(c.name) + '" class="timeline-logo"' +
               ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
             '<div>' +
-              '<h5 class="company-name">' + esc(c.name) + currentBadge + '</h5>' +
+              '<h5 class="company-name">' + esc(c.name) + currentBadge + durSpan + '</h5>' +
               '<p class="company-role">' + esc(c.position) + '</p>' +
               '<p class="company-period">' + esc(c.period_start) + ' – ' + esc(c.period_end) + '</p>' +
             '</div>' +
@@ -202,13 +293,33 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       list.innerHTML =
-        visible.map(function (c) { return buildItem(c, false); }).join('') +
-        hidden.map(function (c) { return buildItem(c, true); }).join('');
+        visible.map(function (c, i) { return buildItem(c, false, i); }).join('') +
+        hidden.map(function (c, i) { return buildItem(c, true, visible.length + i); }).join('');
 
       // Stagger visible items entrance
       var visibleItems = list.querySelectorAll('.timeline-item:not([style*="display:none"])');
       visibleItems.forEach(function (el, i) {
         setTimeout(function () { el.classList.add('visible'); }, 80 + 110 * i);
+      });
+
+      // Animate timeline line when section enters viewport
+      var tlEl = list.closest('.timeline');
+      if (tlEl) {
+        var lineObs = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            setTimeout(function () { tlEl.classList.add('line-visible'); }, 120);
+            lineObs.disconnect();
+          }
+        }, { threshold: 0.05 });
+        lineObs.observe(tlEl);
+      }
+
+      // Click → company modal
+      list.addEventListener('click', function (e) {
+        var item = e.target.closest('.timeline-item[data-company-idx]');
+        if (!item) return;
+        var c = allCompanies[parseInt(item.dataset.companyIdx)];
+        if (c) openCompanyModal(c);
       });
 
       // Re-wire toggle button with new DOM
