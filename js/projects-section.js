@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', async function () {
+  function esc(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   const container = document.getElementById('projects-container');
   const loadMoreBtn = document.getElementById('load-more');
   const filterBar = document.getElementById('project-filters');
@@ -69,20 +78,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     return '<div class="project-card fade-in">' +
       '<div class="card-img-container" style="position:relative">' +
         currentBadge +
-        '<img src="' + (p.image_url || 'assets/img/others/unavailable.png') + '"' +
-          ' alt="' + p.title + '" class="card-img-top"' +
+        '<img src="' + (esc(p.image_url) || 'assets/img/others/unavailable.png') + '"' +
+          ' alt="' + esc(p.title) + '" class="card-img-top"' +
           ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
       '</div>' +
       '<div class="card-body">' +
-        '<h3 class="card-title">' + p.title + '</h3>' +
-        '<p class="card-text">' + (p.description || '') + '</p>' +
+        '<h3 class="card-title">' + esc(p.title) + '</h3>' +
+        '<p class="card-text">' + esc(p.description) + '</p>' +
         '<div class="tech-tags">' + techTags + '</div>' +
       '</div>' +
       '<div class="card-footer">' +
         badges +
         '<div class="company-logo">' +
           '<img src="assets/img/companies/thumbnails/' + companySlug + '_logo.png"' +
-            ' alt="' + (p.company || '') + '"' +
+            ' alt="' + esc(p.company) + '"' +
             ' onerror="this.style.display=\'none\'">' +
         '</div>' +
       '</div>' +
@@ -95,16 +104,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     if (p.category === 'Web' || p.category === 'API' || p.category === 'Backend') {
       return p.web_url
-        ? '<a href="' + p.web_url + '" target="_blank" rel="noopener" class="web-button">' +
+        ? '<a href="' + esc(p.web_url) + '" target="_blank" rel="noopener" class="web-button">' +
             '<img src="assets/img/others/www.png" alt="Web"><span>Visit Website</span></a>'
         : '';
     }
     const apple = p.apple_url
-      ? '<a href="' + p.apple_url + '" target="_blank" rel="noopener" class="store-logo">' +
+      ? '<a href="' + esc(p.apple_url) + '" target="_blank" rel="noopener" class="store-logo">' +
           '<img src="assets/img/others/apple_store.png" alt="App Store"></a>'
       : '';
     const android = p.android_url
-      ? '<a href="' + p.android_url + '" target="_blank" rel="noopener" class="store-logo">' +
+      ? '<a href="' + esc(p.android_url) + '" target="_blank" rel="noopener" class="store-logo">' +
           '<img src="assets/img/others/play_store.png" alt="Play Store"></a>'
       : '';
     return (apple || android) ? '<div class="store-logos">' + apple + android + '</div>' : '';

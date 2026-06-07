@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ── HTML escape helper ────────────────────────────────
+  function esc(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   // ── Dark mode ──────────────────────────────────────────
   function initDarkMode() {
     const toggle = document.getElementById('dark-mode-toggle');
@@ -145,13 +155,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const items = entry[1];
         const cards = items.map(function (s) {
           return '<div class="skill-card">' +
-            '<img src="' + (s.icon_url || '') + '" alt="' + s.name + '"' +
+            '<img src="' + esc(s.icon_url) + '" alt="' + esc(s.name) + '"' +
             ' onerror="this.style.display=\'none\'">' +
-            '<div class="skill-card-name">' + s.name + '</div>' +
+            '<div class="skill-card-name">' + esc(s.name) + '</div>' +
             '</div>';
         }).join('');
         return '<div class="col-md-6 col-lg-3 fade-in">' +
-          '<h6 class="fw-bold mb-3" style="color:var(--text-primary)">' + cat + '</h6>' +
+          '<h6 class="fw-bold mb-3" style="color:var(--text-primary)">' + esc(cat) + '</h6>' +
           '<div class="skills-grid">' + cards + '</div>' +
           '</div>';
       }).join('');
@@ -179,12 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
           (isHidden ? ' style="display:none"' : '') + '>' +
           '<div class="timeline-dot"></div>' +
           '<div class="timeline-card">' +
-            '<img src="' + (c.logo_url || '') + '" alt="' + c.name + '" class="timeline-logo"' +
+            '<img src="' + esc(c.logo_url) + '" alt="' + esc(c.name) + '" class="timeline-logo"' +
               ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
             '<div>' +
-              '<h5 class="company-name">' + c.name + currentBadge + '</h5>' +
-              '<p class="company-role">' + (c.position || '') + '</p>' +
-              '<p class="company-period">' + (c.period_start || '') + ' – ' + (c.period_end || '') + '</p>' +
+              '<h5 class="company-name">' + esc(c.name) + currentBadge + '</h5>' +
+              '<p class="company-role">' + esc(c.position) + '</p>' +
+              '<p class="company-period">' + esc(c.period_start) + ' – ' + esc(c.period_end) + '</p>' +
             '</div>' +
           '</div>' +
           '</div>';
@@ -224,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initScrollAnimations();
   initProgressBars();
   initSmoothScroll();
-  initCompaniesToggle();
   initFooterYear();
   initSkillsFromDB();
   initCompaniesFromDB();
