@@ -1,1 +1,266 @@
-/* Project cards, admin panel, and misc components — added in later tasks */
+/* =============================================
+   Project Grid
+   ============================================= */
+#projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Image */
+.card-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 185px;
+  background: var(--bg-secondary);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.04);
+}
+
+.currently-working-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+/* Body */
+.card-body {
+  padding: 1rem 1.25rem 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.tech-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(14,165,233,0.08);
+  border: 1px solid rgba(14,165,233,0.2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Footer */
+.card-footer {
+  padding: 0.6rem 1.25rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: transparent;
+}
+
+.company-logo {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.company-logo img {
+  height: 26px;
+  width: auto;
+  max-width: 72px;
+  object-fit: contain;
+  opacity: 0.65;
+  transition: opacity 0.2s;
+}
+
+.project-card:hover .company-logo img { opacity: 1; }
+
+/* Badges */
+.web-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(14,165,233,0.08);
+  border: 1.5px solid rgba(14,165,233,0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.web-button:hover {
+  background: rgba(14,165,233,0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.web-button img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.store-logos {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.store-logo {
+  display: block;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.store-logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  display: block;
+}
+
+.store-logo:hover {
+  opacity: 0.85;
+  transform: scale(1.06);
+}
+
+.unavailable-badge img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.4;
+}
+
+/* Fade-in card entrance */
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: cardFadeUp 0.4s ease forwards;
+}
+
+@keyframes cardFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-card:nth-child(1) { animation-delay: 0.04s; }
+.project-card:nth-child(2) { animation-delay: 0.08s; }
+.project-card:nth-child(3) { animation-delay: 0.13s; }
+.project-card:nth-child(4) { animation-delay: 0.18s; }
+.project-card:nth-child(5) { animation-delay: 0.22s; }
+.project-card:nth-child(6) { animation-delay: 0.27s; }
+
+/* Filter chips */
+#project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-chip {
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(14,165,233,0.06);
+}
+
+.filter-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Skeleton */
+.skeleton-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.skeleton-block {
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

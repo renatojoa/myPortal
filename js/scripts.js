@@ -185,7 +185,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentBadge = c.current
           ? '<span class="badge-current">Current</span>'
           : '';
-        return '<div class="timeline-item' + (isHidden ? '' : ' visible') + '"' +
+        const currentClass = c.current ? ' current' : '';
+        return '<div class="timeline-item' + currentClass + '"' +
           (isHidden ? ' style="display:none"' : '') + '>' +
           '<div class="timeline-dot"></div>' +
           '<div class="timeline-card">' +
@@ -203,6 +204,12 @@ document.addEventListener('DOMContentLoaded', function () {
       list.innerHTML =
         visible.map(function (c) { return buildItem(c, false); }).join('') +
         hidden.map(function (c) { return buildItem(c, true); }).join('');
+
+      // Stagger visible items entrance
+      var visibleItems = list.querySelectorAll('.timeline-item:not([style*="display:none"])');
+      visibleItems.forEach(function (el, i) {
+        setTimeout(function () { el.classList.add('visible'); }, 80 + 110 * i);
+      });
 
       // Re-wire toggle button with new DOM
       var btn = document.getElementById('companies-toggle-btn');

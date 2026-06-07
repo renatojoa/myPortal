@@ -260,19 +260,19 @@ body {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 0.65rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent), var(--accent-secondary), transparent);
+  left: 0.62rem;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: var(--border);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   opacity: 0;
-  transform: translateX(-12px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(-14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .timeline-item.visible {
@@ -282,25 +282,53 @@ body {
 
 .timeline-dot {
   position: absolute;
-  left: -2rem;
-  top: 0.35rem;
-  width: 10px;
-  height: 10px;
+  left: -2.1rem;
+  top: 1.1rem;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
+  background: var(--card-bg);
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--bg-secondary);
+  z-index: 1;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.timeline-item.current .timeline-dot {
   background: var(--accent);
-  border: 2px solid var(--bg-secondary);
-  box-shadow: 0 0 0 2px var(--accent);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px var(--bg-secondary); }
+  50%       { box-shadow: 0 0 0 3px var(--bg-secondary), 0 0 0 7px rgba(14,165,233,0.18); }
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
 }
 
 .timeline-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
+  border-left: 3px solid transparent;
   border-radius: 0.75rem;
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-item.current .timeline-card {
+  border-left-color: var(--accent);
+}
+
+.timeline-item:hover .timeline-card {
+  transform: translateX(4px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  border-left-color: var(--accent);
 }
 
 .timeline-logo {
