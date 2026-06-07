@@ -264,6 +264,7 @@ async function saveForm(tab) {
       sort_order: parseInt(get('sort_order').value) || 0,
       current: get('current').checked,
       hidden: get('hidden').checked,
+      wiki_title: get('wiki_title').value.trim() || null,
     };
   }
 
@@ -374,6 +375,8 @@ function companyForm(c) {
       '<input type="text" class="form-control form-control-sm" name="logo_url" value="' + (c.logo_url || '') + '"></div>' +
     '<div class="col-12"><label class="form-label small fw-bold">Description</label>' +
       '<textarea class="form-control form-control-sm" name="description" rows="2">' + (c.description || '') + '</textarea></div>' +
+    '<div class="col-12"><label class="form-label small fw-bold">Wikipedia Title <span class="text-muted fw-normal">(exact page title, blank = skip Wikipedia)</span></label>' +
+      '<input type="text" class="form-control form-control-sm" name="wiki_title" value="' + (c.wiki_title || '') + '" placeholder="e.g. Accenture, Liferay"></div>' +
     '<div class="col-12 d-flex gap-4">' +
       '<div class="form-check">' +
         '<input class="form-check-input" type="checkbox" name="current" id="chk-cur"' + (c.current ? ' checked' : '') + '>' +

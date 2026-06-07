@@ -239,7 +239,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     bootstrap.Modal.getOrCreateInstance(modalEl).show();
 
-    var wiki = await fetchWikiSummary(c.name);
+    var wiki = null;
+    if (c.wiki_title) {
+      wiki = await fetchWikiSummary(c.wiki_title);
+    }
     var wikiEl = document.getElementById('wikiSection');
     if (!wikiEl) return;
 

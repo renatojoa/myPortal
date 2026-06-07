@@ -35,8 +35,12 @@ create table companies (
   logo_url     text,
   description  text,
   hidden       boolean default false,
-  sort_order   int default 0
+  sort_order   int default 0,
+  wiki_title   text
 );
+
+-- To add wiki_title to an existing DB:
+-- ALTER TABLE companies ADD COLUMN wiki_title text;
 
 alter table projects enable row level security;
 alter table skills   enable row level security;
