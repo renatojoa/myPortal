@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     const companySlug = (p.company || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     const techTags = (p.technologies || []).map(t => '<span class="tech-tag">' + t + '</span>').join('');
     const currentBadge = p.currently_working
-      ? '<div class="currently-working-badge">Currently Working</div>'
+      ? '<div class="currently-working-badge">' + (window.t ? window.t('currently_working_badge') : 'Currently Working') + '</div>'
       : '';
-    return '<div class="project-card fade-in">' +
+    return '<div class="project-card fade-in" data-project-id="' + p.id + '">' +
       '<div class="card-img-container" style="position:relative">' +
         currentBadge +
         '<img src="' + (esc(p.image_url) || 'assets/img/others/unavailable.png') + '"' +
@@ -122,6 +122,81 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<img src="assets/img/others/play_store.png" alt="Play Store"></a>'
       : '';
     return (apple || android) ? '<div class="store-logos">' + apple + android + '</div>' : '';
+  }
+
+  // Click → modal
+  if (container) {
+    container.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      var card = e.target.closest('.project-card[data-project-id]');
+      if (!card) return;
+      var pid = parseInt(card.dataset.projectId);
+      var p = allProjects.find(function (x) { return x.id === pid; });
+      if (p) openProjectModal(p);
+    });
+  }
+
+  function openProjectModal(p) {
+    var modalEl = document.getElementById('projectModal');
+    var body = document.getElementById('projectModalBody');
+    if (!modalEl || !body) return;
+
+    var companySlug = (p.company || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    var techTags = (p.technologies || []).map(function (t) {
+      return '<span class="tech-tag">' + esc(t) + '</span>';
+    }).join('');
+
+    var currentBadge = p.currently_working
+      ? '<div class="currently-working-badge" style="position:absolute;top:.65rem;left:.65rem;z-index:2">' +
+          (window.t ? window.t('currently_working_badge') : 'Currently Working') + '</div>'
+      : '';
+
+    var actions = '';
+    if (p.available) {
+      if (p.category === 'Web' || p.category === 'API' || p.category === 'Backend') {
+        if (p.web_url) {
+          actions = '<a href="' + esc(p.web_url) + '" target="_blank" rel="noopener" class="web-button">' +
+            '<img src="assets/img/others/www.png" alt="Web">' +
+            '<span>' + (window.t ? window.t('visit_website') : 'Visit Website') + '</span></a>';
+        }
+      } else {
+        if (p.apple_url) {
+          actions += '<a href="' + esc(p.apple_url) + '" target="_blank" rel="noopener" class="store-logo">' +
+            '<img src="assets/img/others/apple_store.png" alt="App Store" style="height:32px"></a>';
+        }
+        if (p.android_url) {
+          actions += '<a href="' + esc(p.android_url) + '" target="_blank" rel="noopener" class="store-logo">' +
+            '<img src="assets/img/others/play_store.png" alt="Play Store" style="height:32px"></a>';
+        }
+      }
+    }
+
+    body.innerHTML =
+      '<div class="project-modal-hero">' +
+        currentBadge +
+        '<div class="project-modal-hint"></div>' +
+        '<img src="' + (esc(p.image_url) || 'assets/img/others/unavailable.png') + '"' +
+          ' alt="' + esc(p.title) + '"' +
+          ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
+      '</div>' +
+      '<div class="project-modal-body">' +
+        '<div class="project-modal-meta">' +
+          '<h3 class="project-modal-title">' + esc(p.title) + '</h3>' +
+          '<span class="filter-chip active flex-shrink-0">' + esc(p.category) + '</span>' +
+        '</div>' +
+        '<p class="project-modal-description">' + esc(p.description) + '</p>' +
+        '<div class="tech-tags mb-3">' + techTags + '</div>' +
+        '<div class="project-modal-footer">' +
+          '<div class="d-flex align-items-center gap-2 flex-wrap">' + (actions || '') + '</div>' +
+          '<div class="project-modal-company">' +
+            '<img src="assets/img/companies/thumbnails/' + companySlug + '_logo.png"' +
+              ' alt="' + esc(p.company) + '"' +
+              ' onerror="this.style.display=\'none\'">' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
   }
 
   render();

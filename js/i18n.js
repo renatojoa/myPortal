@@ -42,6 +42,7 @@
       view_more: 'View More Projects',
       show_less: 'Show Less',
       visit_website: 'Visit Website',
+      currently_working_badge: 'Currently Working',
 
       skills_label: 'Skills',
       skills_title: 'Skills & Tools',
@@ -115,6 +116,7 @@
       view_more: 'Ver Mais Projetos',
       show_less: 'Ver Menos',
       visit_website: 'Visitar Site',
+      currently_working_badge: 'Trabalhando Atualmente',
 
       skills_label: 'Habilidades',
       skills_title: 'Habilidades & Ferramentas',
