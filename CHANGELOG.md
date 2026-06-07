@@ -7,6 +7,10 @@
 - `wiki_title` column to companies Supabase schema — admin sets exact Wikipedia page title per company
 - `wiki_title` input field in admin company form
 - Company modal now uses `wiki_title` for Wikipedia lookup; null value skips Wikipedia entirely and falls back to description
+- `scripts/wiki-autofill.js` — Node 18+ script to auto-populate wiki_title from Wikipedia for all companies
+
+### Fixed
+- Duration chip showing "NaN yr" — `calcDuration` now parses "Mon YYYY" strings properly instead of relying on `new Date()`
 
 ## [2026-06-06]
 ### Fixed

@@ -173,11 +173,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Companies from Supabase ───────────────────────────
+  function parseMonthYear(str) {
+    if (!str) return null;
+    var lower = str.trim().toLowerCase();
+    if (lower === 'present') return new Date();
+    var parts = str.trim().split(/\s+/);
+    if (parts.length < 2) return null;
+    var MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+    var m = MONTHS.indexOf(parts[0].toLowerCase().slice(0, 3));
+    var y = parseInt(parts[1], 10);
+    if (m === -1 || isNaN(y)) return null;
+    return new Date(y, m, 1);
+  }
+
   function calcDuration(start, end) {
     if (!start) return '';
     try {
-      var s = new Date(start);
-      var e = (end && end.toLowerCase() !== 'present') ? new Date(end) : new Date();
+      var s = parseMonthYear(start);
+      var e = (end && end.toLowerCase() !== 'present') ? parseMonthYear(end) : new Date();
+      if (!s || !e) return '';
       var months = (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth());
       if (months < 1) months = 1;
       if (months < 12) return months + ' mo';
