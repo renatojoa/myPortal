@@ -30,7 +30,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (filterBar) {
     const categories = ['All', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
     filterBar.innerHTML = categories.map(cat =>
-      '<button class="filter-chip' + (cat === 'All' ? ' active' : '') + '" data-category="' + cat + '">' + cat + '</button>'
+      '<button class="filter-chip' + (cat === 'All' ? ' active' : '') + '" data-category="' + cat + '"' +
+      (cat === 'All' ? ' data-i18n="filter_all"' : '') + '>' +
+      (cat === 'All' ? (window.t ? window.t('filter_all') : 'All') : cat) +
+      '</button>'
     ).join('');
 
     filterBar.addEventListener('click', function (e) {
@@ -64,7 +67,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (container) container.innerHTML = visible.map(buildCard).join('');
     if (loadMoreBtn) {
       loadMoreBtn.style.display = filtered.length <= INITIAL_COUNT ? 'none' : 'block';
-      loadMoreBtn.textContent = showingAll ? 'Show Less' : 'View More Projects';
+      var moreKey = showingAll ? 'show_less' : 'view_more';
+      loadMoreBtn.setAttribute('data-i18n', moreKey);
+      loadMoreBtn.textContent = window.t ? window.t(moreKey) : (showingAll ? 'Show Less' : 'View More Projects');
     }
   }
 
@@ -105,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (p.category === 'Web' || p.category === 'API' || p.category === 'Backend') {
       return p.web_url
         ? '<a href="' + esc(p.web_url) + '" target="_blank" rel="noopener" class="web-button">' +
-            '<img src="assets/img/others/www.png" alt="Web"><span>Visit Website</span></a>'
+            '<img src="assets/img/others/www.png" alt="Web"><span data-i18n="visit_website">' + (window.t ? window.t('visit_website') : 'Visit Website') + '</span></a>'
         : '';
     }
     const apple = p.apple_url

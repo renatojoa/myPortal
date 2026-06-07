@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       function buildItem(c, isHidden) {
         const currentBadge = c.current
-          ? '<span class="badge-current">Current</span>'
+          ? '<span class="badge-current" data-i18n="badge_current">' + (window.t ? window.t('badge_current') : 'Current') + '</span>'
           : '';
         const currentClass = c.current ? ' current' : '';
         return '<div class="timeline-item' + currentClass + '"' +
@@ -227,7 +227,9 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () { el.style.display = 'none'; }, 400);
           }
         });
-        btn.textContent = open ? 'Show Less' : 'See Full Experience';
+        var key = open ? 'companies_toggle_less' : 'companies_toggle_see';
+        btn.setAttribute('data-i18n', key);
+        btn.textContent = window.t ? window.t(key) : (open ? 'Show Less' : 'See Full Experience');
       });
     } catch (e) {
       showError('companies-container', 'Could not load companies.');
