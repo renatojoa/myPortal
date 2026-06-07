@@ -2,551 +2,509 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Renato Araújo - QA | Personal Page</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap Icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-        rel="stylesheet" type="text/css" />
-    <!-- SimpleLightbox plugin CSS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <head>
-      <!-- Other head elements -->
-      <link href="css/projects-sections.css" rel="stylesheet">
-  </head>
-    <!-- Estilos temporários para corrigir a seção hero -->
-    <style>
-        .hero-section {
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-        }
-        
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.4);
-            z-index: 1;
-        }
-        
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Garante que o navbar não cubra o conteúdo */
-        body {
-            padding-top: 56px;
-        }
-        
-        @media (min-width: 992px) {
-            body {
-                padding-top: 0;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Renato Araújo — QA Engineer & Test Automation Specialist" />
+  <title>Renato Araújo - QA Engineer</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <!-- Site CSS -->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/components.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-      <div class="container px-4 px-lg-5">QA |
-          <a class="navbar-brand" href="#page-top"> Renato Araújo</a>
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+<nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand fw-black" href="#page-top">RA</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#companies">Companies</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
 
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div id="navbar-collapse" class="collapse navbar-collapse" id="navbarResponsive">
-                <ul id="nav-list" class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li id="nav-home" class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li id="nav-about" class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li id="nav-companies" class="nav-item"><a class="nav-link" href="#companies">Companies</a></li>
-                    <li id="nav-projects" class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li id="nav-experience" class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li id="nav-contact" class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section id="home" class="hero-section position-relative d-flex align-items-center">
-        <div id="video-container" class="video-background">
-          <video id="hero-video" autoplay muted loop id="heroVideo">
-            <source src="assets/videos/bg_homepage.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div id="video-overlay" class="overlay"></div>
-        </div>
-        
-        <div id="hero-content" class="container mt-5 pt-5 position-relative">
-          <div id="hero-row" class="row">
-            <div id="hero-text-col" class="col-lg-8 col-xl-6">
-              <h1 id="hero-title" class="display-4 fw-bold mb-4 text-white">
-                Test. Validate. <span id="hero-highlight" class="text-primary">Ensure Safety</span>
-              </h1>
-              <p id="hero-subtitle" class="lead mb-5 text-white">
-                Driving excellence through precision and reliability in every project!
-              </p>
-              <div id="hero-buttons" class="d-flex flex-wrap gap-3">
-                <a id="download-cv-btn" href="assets/pdf/Renato Araújo - EN.pdf" class="btn btn-primary d-inline-flex align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                  </svg>
-                  Download CV
-                </a>
-                <a id="view-cv-btn" href="assets/pdf/Renato Araújo - EN.pdf" class="btn btn-light d-inline-flex align-items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                  </svg>
-                  View CV
-                </a>
-              </div>
-            </div>
+<section id="home">
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="assets/videos/bg_homepage.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-content container px-4 px-lg-5">
+    <div class="row">
+      <div class="col-lg-8 col-xl-7">
+        <p class="hero-label mb-2">Quality Assurance Engineer</p>
+        <h1 class="hero-title mb-3">
+          Test. Validate.<br><span class="accent">Ensure Safety.</span>
+        </h1>
+        <p class="mb-4" style="color:rgba(255,255,255,0.65);font-size:1.05rem;">
+          Driving excellence through precision and reliability — Recife, Brasil
+        </p>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-number" data-counter data-target="10" data-suffix="+">10+</div>
+            <div class="hero-stat-label">Anos</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div>
+            <div class="hero-stat-number" data-counter data-target="14" data-suffix="">14</div>
+            <div class="hero-stat-label">Projetos</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div>
+            <div class="hero-stat-number" data-counter data-target="8" data-suffix="">8</div>
+            <div class="hero-stat-label">Empresas</div>
           </div>
         </div>
-      </section>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="assets/pdf/Renato Araújo - EN.pdf" class="btn btn-primary" download>
+            <i class="bi bi-download me-2"></i>Download CV
+          </a>
+          <a href="#projects" class="btn btn-outline-light">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     
 
-    <!-- About-->
-   <!-- About Section -->
-   <section id="about" class="py-5 py-md-6 border-top">
-    <div id="about-container" class="container">
-      <h3 id="about-title" class="text-center fw-bold mb-5">About Me</h3>
-      
-      <div id="about-content" class="row g-5 align-items-center">
-        <div id="about-image-col" class="col-lg-5">
-          <div id="image-wrapper" class="position-relative mx-auto fade-border" style="max-width: 400px; aspect-ratio: 1/1;">
-            <img id="profile-image" src="assets/img/others/me.jpg" alt="Renato Araújo" 
-                 class="img-fluid rounded w-100 h-100 object-fit-cover">
-          </div>
+<!-- ABOUT -->
+<section id="about" class="page-section border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">About</p>
+    <h2 class="text-center fw-bold mb-5" style="color:var(--text-primary)">About Me</h2>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 fade-in">
+        <img src="assets/img/others/me.jpg" alt="Renato Araújo" class="about-photo img-fluid">
+      </div>
+      <div class="col-lg-7 fade-in">
+        <h4 class="fw-bold mb-3" style="color:var(--text-primary)">QA Engineer & Test Automation Specialist</h4>
+        <p class="text-muted mb-3">
+          Passionate Quality Assurance Engineer with 10+ years of experience ensuring software quality
+          through meticulous testing and automation across mobile, web, and API platforms.
+        </p>
+        <p class="text-muted mb-4">
+          Expertise in test automation frameworks, CI/CD pipelines, performance testing, and QA leadership.
+          Currently at CI&T, driving quality for international clients.
+        </p>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <span class="skill-chip">Selenium</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">Robot Framework</span>
+          <span class="skill-chip">API Testing</span>
+          <span class="skill-chip">Appium</span>
+          <span class="skill-chip open-badge">✓ Open to work</span>
         </div>
-        
-        <div id="about-text-col" class="col-lg-7">
-          <h4 id="about-subtitle" class="fw-semibold mb-3">QA Engineer & Test Automation Specialist</h4>
-          <p id="about-text-1" class="text-muted mb-3">
-            I'm a passionate Quality Assurance Engineer with extensive experience in ensuring software quality through 
-            meticulous testing and automation. With a strong background in test automation frameworks and methodologies, 
-            I help teams deliver reliable, high-quality software products.
-          </p>
-          <p id="about-text-2" class="text-muted mb-3">
-            My expertise spans across manual testing, automated testing, performance testing, leadship and implementing 
-            CI/CD pipelines for continuous quality assurance. I'm dedicated to creating efficient test strategies 
-            that align with business goals and technical requirements.
-          </p>
-          
-          <div id="about-details" class="row g-4 mt-2">
-            <div id="details-col-1" class="col-md-6">
-              <div id="location-detail" class="mb-3">
-                <h5 class="fw-medium mb-1">Location</h5>
-                <p id="location-text" class="text-muted">Recife, Brazil</p>
-              </div>
-              <div id="experience-detail">
-                <h5 class="fw-medium mb-1">Experience</h5>
-                <p id="experience-text" class="text-muted">10+ Years</p>
-              </div>
-            </div>
-            <div id="details-col-2" class="col-md-6">
-              <div id="email-detail" class="mb-3">
-                <h5 class="fw-medium mb-1">Email</h5>
-                <p id="email-text" class="text-muted">renatojoa@gmail.com</p>
-              </div>
-              <div id="education-detail">
-                <h5 class="fw-medium mb-1">Education</h5>
-                <p id="education-text" class="text-muted">Computer Science, Unicap</p>
-              </div>
-            </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <p class="fw-bold mb-1" style="color:var(--text-primary)">Location</p>
+            <p class="text-muted">Recife, Brazil</p>
+            <p class="fw-bold mb-1" style="color:var(--text-primary)">Experience</p>
+            <p class="text-muted">10+ Years</p>
+          </div>
+          <div class="col-sm-6">
+            <p class="fw-bold mb-1" style="color:var(--text-primary)">Email</p>
+            <p class="text-muted">renatojoa@gmail.com</p>
+            <p class="fw-bold mb-1" style="color:var(--text-primary)">Education</p>
+            <p class="text-muted">Computer Science, Unicap</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="companies" class="py-5 py-md-6 border-top">
-    <div id="companies-section-container" class="container">
-      <!-- O conteúdo será carregado dinamicamente via JavaScript -->
-    </div>
-  </section>
- <!-- Inclua o CSS -->
-<link href="css/companies-section.css" rel="stylesheet">
-
-<!-- Inclua a seção HTML -->
-
-<!-- Projects Section -->
-<section class="page-section" id="projects">
-  <div id="projects-main-container" class="container">
-      <h2 id="projects-text-container" class="text-center mb-5">Projects</h2>
-      <div class="projects-container" id="projects-container">
-          <!-- Projects will be inserted here via JavaScript -->
-      </div>
-      <div class="text-center mt-4">
-          <button id="load-more" class="btn btn-outline-primary">View More Projects</button>
-      </div>
   </div>
 </section>
 
-<!-- Include CSS -->
-<link href="css/projects-sections.css" rel="stylesheet">
-
-<!-- Include JavaScript -->
-<script src="js/projects-section.js"></script>
-
-<!-- Skills Section -->
-<section class="page-section" id="skills">
-    <div id="skills-container" class="container px-4 px-lg-5">
-        <h2 id="skills-title" class="text-center mt-0">Skills and Tools</h2>
-        
-        <!-- Summary Content -->
-        <div id="skills-summary">
-            <div id="skills-summary-row" class="row gx-4 gx-lg-5">
-                <div id="skill-1" class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                        <h3 class="h4 mb-2">Programming Language</h3>
-                        <p class="text-muted mb-0">Python, Robot Framework, Ruby, Java</p>
-                    </div>
-                </div>
-                <div id="skill-2" class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                        <h3 class="h4 mb-2">IDE</h3>
-                        <p class="text-muted mb-0">Vscode, PyCharm, Athom, Intelij, Eclipse.</p>
-                    </div>
-                </div>
-                <div id="skill-3" class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                        <h3 class="h4 mb-2">Test Platform</h3>
-                        <p class="text-muted mb-0">Browserstack, AWS Farm, Android Studio, XCode, Physical Device!</p>
-                    </div>
-                </div>
-                <div id="skill-4" class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                        <h3 class="h4 mb-2">API Testing</h3>
-                        <p class="text-muted mb-0">Postman, Blazemeter, Insomnia, Swagger</p>
-                    </div>
-                </div>
+<!-- COMPANIES -->
+<section id="companies" class="page-section bg-secondary-custom border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">Companies</p>
+    <h2 class="text-center fw-bold mb-5" style="color:var(--text-primary)">Professional Journey</h2>
+    <div id="companies-container">
+      <div class="timeline" id="timeline-list">
+        <div class="timeline-item visible">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/ciandt_logo.png" alt="CI&T" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">CI&T <span class="badge-current">Current</span></h5>
+              <p class="company-role">Quality Assurance Test Engineer</p>
+              <p class="company-period">Apr 2024 – Present</p>
             </div>
+          </div>
         </div>
-
-        <!-- Detailed Content Container (initially hidden) -->
-        <div id="skills-details-container" style="display: none;"></div>
-
-        <!-- Toggle Button - Now at the bottom -->
-        <div class="text-center mt-4">
-            <button id="view-all-skills-btn" class="btn btn-outline-primary">
-                View All Skills
-            </button>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/liferay_logo.png" alt="Liferay" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Liferay</h5>
+              <p class="company-role">Software QA Team Lead</p>
+              <p class="company-period">Feb 2023 – Dec 2023</p>
+            </div>
+          </div>
         </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/dotz_logo.png" alt="Dotz" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Dotz</h5>
+              <p class="company-role">QA Team Lead / QA Test Engineer</p>
+              <p class="company-period">Jan 2021 – Dec 2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/concrete_logo.png" alt="Concrete" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Concrete</h5>
+              <p class="company-role">Quality Assurance Test Engineer</p>
+              <p class="company-period">Sep 2020 – Jan 2021</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/mesa_logo.png" alt="Mesa Mobile" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Mesa Mobile</h5>
+              <p class="company-role">Software QA Team Lead / QA Test Engineer</p>
+              <p class="company-period">Dec 2018 – Sep 2020</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/accenture_logo.png" alt="Accenture" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Accenture</h5>
+              <p class="company-role">Quality Assurance Test Engineer</p>
+              <p class="company-period">Oct 2017 – Dec 2018</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/shop_logo.png" alt="Shop da Saúde" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Shop da Saúde</h5>
+              <p class="company-role">Business Owner / iOS Developer</p>
+              <p class="company-period">Dec 2013 – Dec 2016</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <img src="assets/img/companies/thumbnails/unicap_logo.png" alt="Unicap" class="timeline-logo" onerror="this.src='assets/img/others/unavailable.png'">
+            <div>
+              <h5 class="company-name">Unicap</h5>
+              <p class="company-role">Intern / Web Developer / Java Programmer</p>
+              <p class="company-period">Apr 2010 – Oct 2010</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button id="companies-toggle-btn" class="btn btn-outline-primary">See Full Experience</button>
+      </div>
     </div>
+  </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects" class="page-section border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">Projects</p>
+    <h2 class="text-center fw-bold mb-4" style="color:var(--text-primary)">Projects</h2>
+    <div class="filter-chips justify-content-center" id="project-filters">
+      <button class="filter-chip active" data-category="All">All</button>
+      <button class="filter-chip" data-category="Mobile">Mobile</button>
+      <button class="filter-chip" data-category="Web">Web</button>
+      <button class="filter-chip" data-category="API">API</button>
+      <button class="filter-chip" data-category="Backend">Backend</button>
+    </div>
+    <div class="projects-container" id="projects-container">
+      <!-- populated by projects-section.js -->
+    </div>
+    <div class="text-center mt-4">
+      <button id="load-more" class="btn btn-outline-primary">View More Projects</button>
+    </div>
+  </div>
+</section>
 
-    <!-- Container para conteúdo detalhado -->
-    <div id="skills-details-container" class="container px-4 px-lg-5"></div>
-
-    <!-- Call to action-->
-
- <!-- Experience Section -->
-<section id="experience" class="py-5 py-md-6 border-top">
-    <div id="experience-container" class="container">
-      <h2 id="experience-title" class="text-center fw-bold mb-5">Experiences</h2>
-      
-      <div id="experience-content" class="row g-5">
-        <div id="general-experience-col" class="col-lg-6">
-          <h3 id="general-experience-title" class="fw-semibold mb-4">General</h3>
-          <!-- Manual Web Testing Skill-->
-          <div id="manual-web-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Manual Web Testing</span>
-              <span>6 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="manual-web-progress" class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
- 
-        <!-- Manual Mobile Testing Skill -->
-        <div id="manual-mobile-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-                <span>Manual Mobile Testing</span>
-                <span>9 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-                <div id="manual-mobile-progress" class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            </div>
-
-            <!-- Manual Backend Test Skill -->
-          <div id="manual-backend-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Manual Backend Test</span>
-              <span>6 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="manual-backend-progress" class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-  
-          <!-- Automated Testing Skill -->
-          <div id="automated-testing-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Automated Testing</span>
-              <span>8 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="automated-testing-progress" class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          
-          <!-- Leadership Skill -->
-          <div id="leadership-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Leadership</span>
-              <span>4 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="leadership-progress" class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+<!-- SKILLS -->
+<section id="skills" class="page-section bg-secondary-custom border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">Skills</p>
+    <h2 class="text-center fw-bold mb-5" style="color:var(--text-primary)">Skills & Tools</h2>
+    <div id="skills-container">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 fade-in">
+          <h6 class="fw-bold mb-3" style="color:var(--text-primary)">Languages</h6>
+          <div class="skills-grid">
+            <div class="skill-card"><img src="assets/img/skills/pl/python.png" alt="Python" onerror="this.style.display='none'"><div class="skill-card-name">Python</div></div>
+            <div class="skill-card"><img src="assets/img/skills/pl/robot.png" alt="Robot" onerror="this.style.display='none'"><div class="skill-card-name">Robot FW</div></div>
+            <div class="skill-card"><img src="assets/img/skills/pl/java.png" alt="Java" onerror="this.style.display='none'"><div class="skill-card-name">Java</div></div>
+            <div class="skill-card"><img src="assets/img/skills/pl/ruby.jpg" alt="Ruby" onerror="this.style.display='none'"><div class="skill-card-name">Ruby</div></div>
           </div>
         </div>
-        
-        <div id="technical-experience-col" class="col-lg-6">
-          <h3 id="technical-experience-title" class="fw-semibold mb-4">Technical</h3>
-          <!-- Selenium -->
-          <div id="selenium-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Selenium</span>
-              <span>8 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="selenium-progress" class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        <div class="col-md-6 col-lg-3 fade-in">
+          <h6 class="fw-bold mb-3" style="color:var(--text-primary)">API Testing</h6>
+          <div class="skills-grid">
+            <div class="skill-card"><img src="assets/img/skills/testApi/postman.png" alt="Postman" onerror="this.style.display='none'"><div class="skill-card-name">Postman</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testApi/insomnia.png" alt="Insomnia" onerror="this.style.display='none'"><div class="skill-card-name">Insomnia</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testApi/swagger.jpg" alt="Swagger" onerror="this.style.display='none'"><div class="skill-card-name">Swagger</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testApi/blazemeter.png" alt="Blazemeter" onerror="this.style.display='none'"><div class="skill-card-name">Blazemeter</div></div>
           </div>
-          
-          <!-- Python -->
-          <div id="python-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Python</span>
-              <span>3 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="python-progress" class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 fade-in">
+          <h6 class="fw-bold mb-3" style="color:var(--text-primary)">Test Platforms</h6>
+          <div class="skills-grid">
+            <div class="skill-card"><img src="assets/img/skills/testFront/browserstack.png" alt="Browserstack" onerror="this.style.display='none'"><div class="skill-card-name">Browserstack</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testFront/aws.png" alt="AWS" onerror="this.style.display='none'"><div class="skill-card-name">AWS Farm</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testFront/androids.png" alt="Android Studio" onerror="this.style.display='none'"><div class="skill-card-name">Android</div></div>
+            <div class="skill-card"><img src="assets/img/skills/testFront/xcode.png" alt="XCode" onerror="this.style.display='none'"><div class="skill-card-name">XCode</div></div>
           </div>
-          
-          <!-- CI/CD Configuration -->
-          <div id="ci-cd-config-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>CI/CD Configuration</span>
-              <span>1 year</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="ci-cd-config-progress" class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          
-          <!-- CI/CD Usage -->
-          <div id="ci-cd-usage-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>CI/CD Usage</span>
-              <span>6 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="ci-cd-usage-progress" class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          
-          <!-- API Testing -->
-          <div id="api-testing-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>API Testing</span>
-              <span>7 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="api-testing-progress" class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          
-          <!-- Performance Testing -->
-          <div id="performance-testing-skill" class="mb-4">
-            <div class="d-flex justify-content-between mb-1">
-              <span>Performance Testing</span>
-              <span>6 years</span>
-            </div>
-            <div class="progress" style="height: 8px;">
-              <div id="performance-testing-progress" class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 fade-in">
+          <h6 class="fw-bold mb-3" style="color:var(--text-primary)">IDEs</h6>
+          <div class="skills-grid">
+            <div class="skill-card"><img src="assets/img/skills/ide/vscode.jpg" alt="VSCode" onerror="this.style.display='none'"><div class="skill-card-name">VSCode</div></div>
+            <div class="skill-card"><img src="assets/img/skills/ide/pycharm.jpg" alt="PyCharm" onerror="this.style.display='none'"><div class="skill-card-name">PyCharm</div></div>
+            <div class="skill-card"><img src="assets/img/skills/ide/intelij.jpg" alt="IntelliJ" onerror="this.style.display='none'"><div class="skill-card-name">IntelliJ</div></div>
+            <div class="skill-card"><img src="assets/img/skills/ide/eclipse.jpg" alt="Eclipse" onerror="this.style.display='none'"><div class="skill-card-name">Eclipse</div></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-<!-- Contact-->
- <section id="contact" class="py-5 py-md-6 border-top">
-    <div id="contact-container" class="container">
-      <h2 id="contact-title" class="text-center fw-bold mb-5">Get In Touch</h2>
-      
-      <div id="contact-content" class="row g-4">
-        <div id="contact-info-col" class="col-lg-4">
-          <div id="contact-info-card" class="card h-100">
-            <div id="contact-info-body" class="card-body">
-              <div id="email-info" class="mb-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope text-primary" viewBox="0 0 16 16">
-                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 class="fw-medium mb-1">Email</h5>
-                    <p id="contact-email" class="text-muted mb-0">renatojoa@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div id="phone-info" class="mb-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone text-primary" viewBox="0 0 16 16">
-                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 class="fw-medium mb-1">Phone</h5>
-                    <p id="contact-phone" class="text-muted mb-0">+55 (81) 99687-3479</p>
-                  </div>
-                </div>
-              </div>
+  </div>
+</section>
 
-              <div id="linkedin-info" class="mb-4">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-primary" viewBox="0 0 16 16">
-                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 class="fw-medium mb-1">LinkedIn</h5>
-                    <p id="contact-linkedin" class="text-muted mb-0">linkedin.com/in/renatojoa</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div id="location-info">
-                <div class="d-flex align-items-center mb-3">
-                  <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt text-primary" viewBox="0 0 16 16">
-                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 class="fw-medium mb-1">Location</h5>
-                    <p id="contact-location" class="text-muted mb-0">Recife, Brazil</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!-- EXPERIENCE -->
+<section id="experience" class="page-section border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">Experience</p>
+    <h2 class="text-center fw-bold mb-5" style="color:var(--text-primary)">Experience</h2>
+    <div class="row g-5">
+      <div class="col-lg-6 fade-in">
+        <h5 class="fw-bold mb-4" style="color:var(--text-primary)">General</h5>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Manual Mobile Testing</span>
+            <span class="text-muted">9 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
-        
-        <div id="contact-form-col" class="col-lg-8">
-          <div id="contact-form-card" class="card h-100">
-            <div id="contact-form-body" class="card-body">
-              <form id="contact-form">
-                <div id="name-email-row" class="row g-3 mb-3">
-                  <div id="name-col" class="col-md-6">
-                    <input id="contact-name" type="text" class="form-control" placeholder="Your Name" name="name" required>
-                  </div>
-                  <div id="email-col" class="col-md-6">
-                    <input id="contact-email-input" type="email" class="form-control" placeholder="Your Email" name="email" required>
-                  </div>
-                </div>
-                
-                <div id="subject-container" class="mb-3">
-                  <input id="contact-subject" type="text" class="form-control" placeholder="Subject" name="subject" required>
-                </div>
-                
-                <div id="message-container" class="mb-4">
-                  <textarea id="contact-message" class="form-control" rows="5" placeholder="Your Message" name="message" required></textarea>
-                </div>
-                
-                <button id="contact-submit-btn" type="submit" class="btn btn-primary">Send Message</button>
-              </form>
-            </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Automated Testing</span>
+            <span class="text-muted">8 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Manual Web Testing</span>
+            <span class="text-muted">6 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Leadership</span>
+            <span class="text-muted">4 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in">
+        <h5 class="fw-bold mb-4" style="color:var(--text-primary)">Technical</h5>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Selenium</span>
+            <span class="text-muted">8 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">API Testing</span>
+            <span class="text-muted">7 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Performance Testing</span>
+            <span class="text-muted">6 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">CI/CD Usage</span>
+            <span class="text-muted">6 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="d-flex justify-content-between mb-1">
+            <span style="color:var(--text-primary)">Python</span>
+            <span class="text-muted">3 years</span>
+          </div>
+          <div class="progress" style="height:8px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer id="main-footer" class="py-4 border-top">
-    <div id="footer-container" class="container">
-      <div id="footer-row" class="row align-items-center">
-        <div id="footer-copyright-col" class="col-md-6 mb-3 mb-md-0">
-          <p id="copyright-text" class="text-muted small mb-0">
-            © <span id="current-year"></span> Renato Araújo. All rights reserved.
-          </p>
+<!-- CONTACT -->
+<section id="contact" class="page-section bg-secondary-custom border-top">
+  <div class="container px-4 px-lg-5">
+    <p class="section-label text-center">Contact</p>
+    <h2 class="text-center fw-bold mb-5" style="color:var(--text-primary)">Get In Touch</h2>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="contact-info-card">
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="contact-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383z"/></svg>
+            </div>
+            <div>
+              <div class="fw-bold" style="color:var(--text-primary)">Email</div>
+              <div class="text-muted small">renatojoa@gmail.com</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="contact-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58z"/></svg>
+            </div>
+            <div>
+              <div class="fw-bold" style="color:var(--text-primary)">Phone</div>
+              <div class="text-muted small">+55 (81) 99687-3479</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="contact-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+            </div>
+            <div>
+              <div class="fw-bold" style="color:var(--text-primary)">LinkedIn</div>
+              <div class="text-muted small">linkedin.com/in/renatojoa</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="contact-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
+            </div>
+            <div>
+              <div class="fw-bold" style="color:var(--text-primary)">Location</div>
+              <div class="text-muted small">Recife, Brazil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="contact-form-card">
+          <form id="contact-form" action="https://formspree.io/f/xjgdyjba" method="POST">
+            <div class="row g-3 mb-3">
+              <div class="col-6">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+              </div>
+              <div class="col-6">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="contact-info-card">
+          <h6 class="fw-bold mb-3" style="color:var(--text-primary)">My Availability</h6>
+          <div class="calendar-embed">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=renatojoa%40gmail.com&ctz=America%2FMaceio&mode=WEEK&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0"
+              style="border:0;width:100%;height:280px;"
+              frameborder="0"
+              scrolling="no"
+              title="Renato's availability calendar">
+            </iframe>
+          </div>
+          <p class="text-muted small mt-2">Feel free to reach out during available slots.</p>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- SimpleLightbox plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<!-- FOOTER -->
+<footer class="py-4">
+  <div class="container px-4 px-lg-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <p class="text-muted small mb-0">© <span id="current-year"></span> Renato Araújo. All rights reserved.</p>
+      <a href="/admin.html" class="footer-admin-link">⚙</a>
+    </div>
+  </div>
+</footer>
 
-    <script>
-        document.getElementById('view-all-skills-btn').addEventListener('click', function () {
-            const hiddenItems = document.querySelectorAll('.hidden-item');
-            hiddenItems.forEach(item => {
-                item.style.display = (item.style.display === 'none' || item.style.display === '') ? 'block' : 'none';
-            });
-            this.textContent = (this.textContent === 'View All') ? 'Show Less' : 'View All';
-        });
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<!-- Site JS -->
+<script src="js/data.js"></script>
+<script src="js/projects-section.js"></script>
+<script src="js/scripts.js"></script>
 
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    
 </body>
 
 </html>
