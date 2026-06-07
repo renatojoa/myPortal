@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             imageUrl: "assets/img/projects/pibic_unicap_logo.png",
             appleStoreUrl: "#",
             androidStoreUrl: "#",
-            category: "Windows Application",
+            category: "Backend",
             projectAvailable: false,
             company: "Unicap",
             currentlyWorking: false
@@ -179,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ].reverse();
 
-    
     const container = document.getElementById('projects-container');
     const loadMoreBtn = document.getElementById('load-more');
     const initialCount = 4;
@@ -225,61 +224,68 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function renderProjects(showAll = false) {
-        container.innerHTML = '';
-        
-        const projectsToShow = showAll ? projectsData : projectsData.slice(0, initialCount);
-        
-        projectsToShow.forEach((project, index) => {
-            const projectEl = document.createElement('div');
-            projectEl.className = 'project-card';
-            projectEl.style.animationDelay = `${index * 0.1}s`;
-            projectEl.innerHTML = `
-                <div class="card-img-container">
-                ${project.currentlyWorking ? 
+    function buildCard(project, index) {
+        return `<div class="project-card" style="animation-delay:${index * 0.1}s">
+            <div class="card-img-container">
+                ${project.currentlyWorking ?
                     '<div class="currently-working-badge">Currently Working</div>' : ''}
-                <img src="${project.imageUrl}" alt="${project.title}" class="card-img-top" 
+                <img src="${project.imageUrl}" alt="${project.title}" class="card-img-top"
                      onerror="this.src='assets/img/projects/default.jpg'">
             </div>
+            <div class="card-body">
+                <h3 class="card-title">${project.title}</h3>
+                <p class="card-text">${project.description}</p>
+                <div class="tech-tags">
+                    ${project.technologies.map(tech =>
+                        `<span class="tech-tag">${tech}</span>`
+                    ).join('')}
+                </div>
+            </div>
+            <div class="card-footer">
+                ${renderStoreButtons(project)}
+                <div class="company-logo">
+                    <img src="assets/img/companies/thumbnails/${project.company.toLowerCase().replace(' ', '-')}_logo.png"
+                         alt="${project.company} logo"
+                         onerror="this.src='assets/img/others/default-company.png'">
+                </div>
+            </div>
+        </div>`;
+    }
 
-                <div class="card-body">
-                    <h3 class="card-title">${project.title}</h3>
-                    <p class="card-text">${project.description}</p>
-                    <div class="tech-tags">
-                        ${project.technologies.map(tech => 
-                            `<span class="tech-tag">${tech}</span>`
-                        ).join('')}
-                    </div>
-                </div>
-                <div class="card-footer">
-                    ${renderStoreButtons(project)}
-                    <div class="company-logo">
-                        <img src="assets/img/companies/thumbnails/${project.company.toLowerCase().replace(' ', '-')}_logo.png" 
-                             alt="${project.company} logo" 
-                             onerror="this.src='assets/img/others/default-company.png'">
-                    </div>
-                </div>
-            `;
-            container.appendChild(projectEl);
-        });
+    function renderProjects(showAll = false) {
+        const projectsToShow = showAll ? projectsData : projectsData.slice(0, initialCount);
+        container.innerHTML = projectsToShow.map((p, i) => buildCard(p, i)).join('');
 
         loadMoreBtn.textContent = isShowingAll ? 'Show Less Projects' : 'View More Projects';
         loadMoreBtn.style.display = projectsData.length <= initialCount ? 'none' : 'block';
-        
+
         if (isShowingAll) {
             container.classList.add('show-all');
         } else {
             container.classList.remove('show-all');
         }
     }
+
     loadMoreBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // Previne o comportamento padrão do clique
+        e.preventDefault();
         isShowingAll = !isShowingAll;
         renderProjects(isShowingAll);
-        
-        // Opcional: Rolar suavemente de volta para o topo dos projetos se necessário
         document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     renderProjects();
+
+    // Filter chip interaction
+    document.getElementById('project-filters').addEventListener('click', function(e) {
+        if (!e.target.matches('.filter-chip')) return;
+        this.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        const cat = e.target.dataset.category;
+        const filtered = cat === 'All'
+            ? [...projectsData].reverse().reverse()
+            : projectsData.filter(p => p.category === cat);
+        container.innerHTML = filtered.map((p, i) => buildCard(p, i)).join('');
+        // Reset load-more visibility when filtering
+        loadMoreBtn.style.display = 'none';
+    });
 });
