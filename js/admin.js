@@ -82,22 +82,85 @@ function tableShell(tab, cols) {
 // ── PROJECTS ───────────────────────────────────────────
 async function loadProjects() {
   var el = tabEl('projects');
-  el.innerHTML = tableShell('projects', ['Title', 'Category', 'Company', 'Available', 'Current']);
+  el.innerHTML = tableShell('projects', ['', 'Title', 'Category', 'Company', 'Available', 'Current']);
   var res = await db.from('projects').select('*').order('sort_order', { ascending: false });
   if (res.error) { el.innerHTML += '<p class="text-danger">' + res.error.message + '</p>'; return; }
-  document.getElementById('projects-tbody').innerHTML = res.data.map(function (p) {
-    return '<tr>' +
-      '<td><strong>' + escStr(p.title) + '</strong><br><span class="text-muted">' + escStr(p.company) + '</span></td>' +
-      '<td>' + escStr(p.category) + '</td>' +
-      '<td>' + escStr(p.company) + '</td>' +
-      '<td>' + (p.available ? '✓' : '✗') + '</td>' +
-      '<td>' + (p.currently_working ? '🟢' : '') + '</td>' +
-      '<td>' +
-        '<button class="btn btn-sm btn-outline-primary me-1" onclick="openEditProject(' + p.id + ')">Edit</button>' +
-        '<button class="btn btn-sm btn-outline-danger" onclick="deleteRow(\'projects\',' + p.id + ')">Del</button>' +
-      '</td>' +
-      '</tr>';
-  }).join('');
+
+  var rows = res.data;
+  var tbody = document.getElementById('projects-tbody');
+  var draggingId = null;
+
+  function renderRows() {
+    tbody.innerHTML = rows.map(function (p) {
+      return '<tr draggable="true" data-id="' + p.id + '">' +
+        '<td class="drag-handle" title="Drag to reorder">⠿</td>' +
+        '<td><strong>' + escStr(p.title) + '</strong></td>' +
+        '<td>' + escStr(p.category) + '</td>' +
+        '<td>' + escStr(p.company) + '</td>' +
+        '<td>' + (p.available ? '✓' : '✗') + '</td>' +
+        '<td>' + (p.currently_working ? '🟢' : '') + '</td>' +
+        '<td>' +
+          '<button class="btn btn-sm btn-outline-primary me-1" onclick="openEditProject(' + p.id + ')">Edit</button>' +
+          '<button class="btn btn-sm btn-outline-danger" onclick="deleteRow(\'projects\',' + p.id + ')">Del</button>' +
+        '</td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  tbody.addEventListener('dragstart', function (e) {
+    var tr = e.target.closest('tr[data-id]');
+    if (!tr) return;
+    draggingId = tr.dataset.id;
+    e.dataTransfer.effectAllowed = 'move';
+    setTimeout(function () { tr.classList.add('dragging'); }, 0);
+  });
+
+  tbody.addEventListener('dragend', function () {
+    tbody.querySelectorAll('tr').forEach(function (r) {
+      r.classList.remove('dragging', 'drag-over');
+    });
+    draggingId = null;
+  });
+
+  tbody.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    var tr = e.target.closest('tr[data-id]');
+    tbody.querySelectorAll('tr').forEach(function (r) { r.classList.remove('drag-over'); });
+    if (tr && tr.dataset.id !== draggingId) tr.classList.add('drag-over');
+  });
+
+  tbody.addEventListener('dragleave', function (e) {
+    if (!tbody.contains(e.relatedTarget)) {
+      tbody.querySelectorAll('tr').forEach(function (r) { r.classList.remove('drag-over'); });
+    }
+  });
+
+  tbody.addEventListener('drop', async function (e) {
+    e.preventDefault();
+    tbody.querySelectorAll('tr').forEach(function (r) { r.classList.remove('drag-over', 'dragging'); });
+    var targetTr = e.target.closest('tr[data-id]');
+    if (!targetTr || !draggingId || targetTr.dataset.id === draggingId) return;
+
+    var fromIdx = rows.findIndex(function (p) { return String(p.id) === draggingId; });
+    var toIdx   = rows.findIndex(function (p) { return String(p.id) === targetTr.dataset.id; });
+    if (fromIdx === -1 || toIdx === -1) return;
+
+    rows.splice(toIdx, 0, rows.splice(fromIdx, 1)[0]);
+    var total = rows.length;
+    rows.forEach(function (p, i) { p.sort_order = (total - i) * 10; });
+
+    renderRows();
+
+    var errors = (await Promise.all(
+      rows.map(function (p) {
+        return db.from('projects').update({ sort_order: p.sort_order }).eq('id', p.id);
+      })
+    )).filter(function (r) { return r.error; });
+
+    if (errors.length) alert('Error saving order: ' + errors[0].error.message);
+  });
+
+  renderRows();
 }
 
 function projectForm(p) {

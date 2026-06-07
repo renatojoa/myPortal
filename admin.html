@@ -21,6 +21,11 @@
     .modal-content { background: var(--card-bg); color: var(--text-primary); border-color: var(--border); }
     .modal-header, .modal-footer { border-color: var(--border); }
     .form-label { color: var(--text-primary); }
+    .drag-handle { cursor: grab; color: var(--text-muted); font-size: 1.15rem; padding: 0 6px; user-select: none; line-height: 1; }
+    .drag-handle:active { cursor: grabbing; }
+    tr.dragging { opacity: 0.4; background: var(--bg-secondary) !important; }
+    tr.drag-over > td:first-child { border-left: 3px solid var(--accent); }
+    tr.drag-over { background: color-mix(in srgb, var(--accent) 6%, transparent); }
   </style>
 </head>
 <body>
