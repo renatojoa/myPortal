@@ -1,3 +1,8 @@
+function escStr(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 const adminModal = new bootstrap.Modal(document.getElementById('adminModal'));
 let currentTab = 'projects';
 let editingId = null;
@@ -82,9 +87,9 @@ async function loadProjects() {
   if (res.error) { el.innerHTML += '<p class="text-danger">' + res.error.message + '</p>'; return; }
   document.getElementById('projects-tbody').innerHTML = res.data.map(function (p) {
     return '<tr>' +
-      '<td><strong>' + (p.title || '') + '</strong><br><span class="text-muted">' + (p.company || '') + '</span></td>' +
-      '<td>' + (p.category || '') + '</td>' +
-      '<td>' + (p.company || '') + '</td>' +
+      '<td><strong>' + escStr(p.title) + '</strong><br><span class="text-muted">' + escStr(p.company) + '</span></td>' +
+      '<td>' + escStr(p.category) + '</td>' +
+      '<td>' + escStr(p.company) + '</td>' +
       '<td>' + (p.available ? '✓' : '✗') + '</td>' +
       '<td>' + (p.currently_working ? '🟢' : '') + '</td>' +
       '<td>' +
@@ -224,11 +229,11 @@ async function loadSkills() {
   document.getElementById('skills-tbody').innerHTML = res.data.map(function (s) {
     return '<tr>' +
       '<td>' +
-        '<img src="' + (s.icon_url || '') + '" style="width:24px;height:24px;object-fit:contain;margin-right:8px" onerror="this.style.display=\'none\'">' +
-        (s.name || '') +
+        '<img src="' + escStr(s.icon_url) + '" style="width:24px;height:24px;object-fit:contain;margin-right:8px" onerror="this.style.display=\'none\'">' +
+        escStr(s.name) +
       '</td>' +
-      '<td>' + (s.category || '') + '</td>' +
-      '<td class="text-muted small">' + (s.icon_url || '') + '</td>' +
+      '<td>' + escStr(s.category) + '</td>' +
+      '<td class="text-muted small">' + escStr(s.icon_url) + '</td>' +
       '<td>' + (s.sort_order || 0) + '</td>' +
       '<td>' +
         '<button class="btn btn-sm btn-outline-primary me-1" onclick="openEditSkill(' + s.id + ')">Edit</button>' +
@@ -274,11 +279,11 @@ async function loadCompanies() {
   document.getElementById('companies-tbody').innerHTML = res.data.map(function (c) {
     return '<tr>' +
       '<td>' +
-        '<img src="' + (c.logo_url || '') + '" style="width:28px;height:28px;object-fit:contain;margin-right:8px" onerror="this.style.display=\'none\'">' +
-        '<strong>' + (c.name || '') + '</strong>' +
+        '<img src="' + escStr(c.logo_url) + '" style="width:28px;height:28px;object-fit:contain;margin-right:8px" onerror="this.style.display=\'none\'">' +
+        '<strong>' + escStr(c.name) + '</strong>' +
       '</td>' +
-      '<td>' + (c.position || '') + '</td>' +
-      '<td class="text-muted small">' + (c.period_start || '') + ' – ' + (c.period_end || '') + '</td>' +
+      '<td>' + escStr(c.position) + '</td>' +
+      '<td class="text-muted small">' + escStr(c.period_start) + ' – ' + escStr(c.period_end) + '</td>' +
       '<td>' + (c.current ? '🟢' : '') + '</td>' +
       '<td>' + (c.hidden ? '👁' : '') + '</td>' +
       '<td>' +
