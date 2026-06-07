@@ -282,10 +282,9 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.classList.add('active');
         const cat = e.target.dataset.category;
         const filtered = cat === 'All'
-            ? [...projectsData].reverse().reverse()
+            ? [...projectsData].reverse()
             : projectsData.filter(p => p.category === cat);
         container.innerHTML = filtered.map((p, i) => buildCard(p, i)).join('');
-        // Reset load-more visibility when filtering
-        loadMoreBtn.style.display = 'none';
+        loadMoreBtn.style.display = cat === 'All' ? 'block' : 'none';
     });
 });
