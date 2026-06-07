@@ -128,6 +128,95 @@ document.addEventListener('DOMContentLoaded', function () {
     if (yr) yr.textContent = new Date().getFullYear();
   }
 
+  // ── Skills from Supabase ──────────────────────────────
+  async function initSkillsFromDB() {
+    const container = document.getElementById('skills-container');
+    if (!container || typeof fetchSkills === 'undefined') return;
+    showSkeleton('skills-container', 2);
+    try {
+      const skills = await fetchSkills();
+      const grouped = skills.reduce(function (acc, s) {
+        if (!acc[s.category]) acc[s.category] = [];
+        acc[s.category].push(s);
+        return acc;
+      }, {});
+      const cols = Object.entries(grouped).map(function (entry) {
+        const cat = entry[0];
+        const items = entry[1];
+        const cards = items.map(function (s) {
+          return '<div class="skill-card">' +
+            '<img src="' + (s.icon_url || '') + '" alt="' + s.name + '"' +
+            ' onerror="this.style.display=\'none\'">' +
+            '<div class="skill-card-name">' + s.name + '</div>' +
+            '</div>';
+        }).join('');
+        return '<div class="col-md-6 col-lg-3 fade-in">' +
+          '<h6 class="fw-bold mb-3" style="color:var(--text-primary)">' + cat + '</h6>' +
+          '<div class="skills-grid">' + cards + '</div>' +
+          '</div>';
+      }).join('');
+      container.innerHTML = '<div class="row g-4">' + cols + '</div>';
+      initScrollAnimations();
+    } catch (e) {
+      showError('skills-container', 'Could not load skills.');
+    }
+  }
+
+  // ── Companies from Supabase ───────────────────────────
+  async function initCompaniesFromDB() {
+    const list = document.getElementById('timeline-list');
+    if (!list || typeof fetchCompanies === 'undefined') return;
+    try {
+      const companies = await fetchCompanies();
+      const visible = companies.filter(function (c) { return !c.hidden; });
+      const hidden = companies.filter(function (c) { return c.hidden; });
+
+      function buildItem(c, isHidden) {
+        const currentBadge = c.current
+          ? '<span class="badge-current">Current</span>'
+          : '';
+        return '<div class="timeline-item' + (isHidden ? '' : ' visible') + '"' +
+          (isHidden ? ' style="display:none"' : '') + '>' +
+          '<div class="timeline-dot"></div>' +
+          '<div class="timeline-card">' +
+            '<img src="' + (c.logo_url || '') + '" alt="' + c.name + '" class="timeline-logo"' +
+              ' onerror="this.src=\'assets/img/others/unavailable.png\'">' +
+            '<div>' +
+              '<h5 class="company-name">' + c.name + currentBadge + '</h5>' +
+              '<p class="company-role">' + (c.position || '') + '</p>' +
+              '<p class="company-period">' + (c.period_start || '') + ' – ' + (c.period_end || '') + '</p>' +
+            '</div>' +
+          '</div>' +
+          '</div>';
+      }
+
+      list.innerHTML =
+        visible.map(function (c) { return buildItem(c, false); }).join('') +
+        hidden.map(function (c) { return buildItem(c, true); }).join('');
+
+      // Re-wire toggle button with new DOM
+      var btn = document.getElementById('companies-toggle-btn');
+      if (!btn) return;
+      var hiddenItems = list.querySelectorAll('.timeline-item[style*="display:none"]');
+      var open = false;
+      btn.addEventListener('click', function () {
+        open = !open;
+        hiddenItems.forEach(function (el, i) {
+          if (open) {
+            el.style.display = 'block';
+            setTimeout(function () { el.classList.add('visible'); }, 60 * i);
+          } else {
+            el.classList.remove('visible');
+            setTimeout(function () { el.style.display = 'none'; }, 400);
+          }
+        });
+        btn.textContent = open ? 'Show Less' : 'See Full Experience';
+      });
+    } catch (e) {
+      showError('companies-container', 'Could not load companies.');
+    }
+  }
+
   // ── Init all ──────────────────────────────────────────
   initDarkMode();
   initNavbar();
@@ -137,4 +226,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initSmoothScroll();
   initCompaniesToggle();
   initFooterYear();
+  initSkillsFromDB();
+  initCompaniesFromDB();
 });
