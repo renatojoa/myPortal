@@ -8,6 +8,7 @@
   --text-muted: #6b7280;
   --border: #e2e8f0;
   --accent: #0ea5e9;
+  --accent-hover: #0284c7;
   --accent-secondary: #6366f1;
   --card-bg: #ffffff;
   --shadow: 0 1px 3px rgba(0,0,0,0.08);
@@ -21,6 +22,7 @@
   --text-muted: #94a3b8;
   --border: #334155;
   --accent: #38bdf8;
+  --accent-hover: #0369a1;
   --accent-secondary: #818cf8;
   --card-bg: #1e293b;
   --shadow: 0 1px 3px rgba(0,0,0,0.3);
@@ -472,7 +474,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); }
   font-family: "Merriweather Sans", sans-serif;
   font-weight: 700;
 }
-.btn-primary:hover { background: #0284c7; border-color: #0284c7; }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
 .btn-outline-primary {
   border-color: var(--accent);
