@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── Dark mode ──────────────────────────────────────────
   function initDarkMode() {
     const toggle = document.getElementById('dark-mode-toggle');
+    if (!toggle) return;
     const html = document.documentElement;
     const saved = localStorage.getItem('theme') ||
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
       link.addEventListener('click', () => {
         const toggler = document.querySelector('.navbar-toggler');
-        if (window.getComputedStyle(toggler).display !== 'none') toggler.click();
+        if (toggler && window.getComputedStyle(toggler).display !== 'none') toggler.click();
       });
     });
 
@@ -76,12 +77,12 @@ document.addEventListener('DOMContentLoaded', function () {
   function initProgressBars() {
     const bars = document.querySelectorAll('.progress');
     if (!bars.length) return;
-    bars.forEach(p => { p.querySelector('.progress-bar').style.width = '0%'; });
+    bars.forEach(p => { const b = p.querySelector('.progress-bar'); if (b) b.style.width = '0%'; });
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           const bar = e.target.querySelector('.progress-bar');
-          bar.style.width = bar.getAttribute('aria-valuenow') + '%';
+          if (bar) bar.style.width = (bar.getAttribute('aria-valuenow') || '0') + '%';
           observer.unobserve(e.target);
         }
       });
