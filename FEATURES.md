@@ -34,6 +34,7 @@
 
 ## Contact
 - Dedicated contact section
+- "My Availability" — Cal.com inline booking widget (syncs with Google Calendar, visitors can book a real slot). Configured via `CAL_LINK` in `js/scripts.js` (`initCalEmbed`)
 
 ## CV Download
 - PDF available at `assets/pdf/Renato Araújo - EN.pdf`

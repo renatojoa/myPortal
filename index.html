@@ -548,14 +548,16 @@
       <div class="col-lg-4">
         <div class="contact-info-card">
           <h6 class="fw-bold mb-3" style="color:var(--text-primary)" data-i18n="contact_availability">My Availability</h6>
+          <!--
+            Cal.com inline booking widget. Setup (one-time):
+              1. Create a free account at https://cal.com and connect your
+                 Google Calendar under Settings > My Availability / Apps.
+              2. Create an event type (e.g. "30min") and note its slug.
+              3. Replace "renatojoa/30min" below (CAL_LINK) with your real
+                 username/event-type link, e.g. "yourusername/30min".
+          -->
           <div class="calendar-embed">
-            <iframe
-              src="https://calendar.google.com/calendar/embed?src=renatojoa%40gmail.com&ctz=America%2FRecife&mode=WEEK&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showWknd=0"
-              style="border:0;width:100%;height:280px;"
-              frameborder="0"
-              scrolling="no"
-              title="Renato's availability calendar">
-            </iframe>
+            <div id="cal-inline-widget" style="width:100%;min-height:320px;overflow:scroll"></div>
           </div>
           <p class="text-muted small mt-2" data-i18n="contact_note">Feel free to reach out during available slots.</p>
         </div>
@@ -604,7 +606,7 @@
 <script src="js/i18n.js?v=6"></script>
 <script src="js/data.js?v=5"></script>
 <script src="js/projects-section.js?v=5"></script>
-<script src="js/scripts.js?v=5"></script>
+<script src="js/scripts.js?v=6"></script>
 
 </body>
 
