@@ -13,6 +13,7 @@
 - Hero terminal: mini-browser now stays hidden until `hire_renato.py --dry-run` runs, and fades out again once the run finishes (instead of sitting empty/visible the whole time)
 - Hero terminal: added a `pytest tests/hero_stats.py` step asserting the hero's years/projects/companies stat text
 - Hero terminal's "home" mock screen now shows the real nav links, hero kicker, title, subtitle and stats as miniature text instead of abstract bars
+- Hero terminal now loops: after the hire_renato.py run, types `/clean`, clears the log, and restarts the whole demo from `whoami`
 
 ## [2026-10-01]
 ### Added

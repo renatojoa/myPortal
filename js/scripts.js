@@ -163,48 +163,61 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function run() {
-      await typeLine('whoami');
-      addLine(esc(window.t ? window.t('term_whoami_out') : 'Renato Araújo — QA Engineer'), 'out');
-      await wait(500);
+      while (true) {
+        if (browser) browser.classList.remove('visible');
 
-      await typeLine('pytest tests/hero_stats.py -v');
-      await wait(300);
-      addLine('assert years_text == "10+"', 'out cf-assert');
-      addLine('assert projects_text == "14"', 'out cf-assert');
-      addLine('assert companies_text == "8"', 'out cf-assert');
-      await wait(300);
-      addLine('3 passed in 0.02s', 'out ok');
-      await wait(500);
+        await typeLine('whoami');
+        addLine(esc(window.t ? window.t('term_whoami_out') : 'Renato Araújo — QA Engineer'), 'out');
+        await wait(500);
 
-      await typeLine('python hire_renato.py --dry-run');
-      await wait(300);
+        await typeLine('pytest tests/hero_stats.py -v');
+        await wait(300);
+        addLine('assert years_text == "10+"', 'out cf-assert');
+        addLine('assert projects_text == "14"', 'out cf-assert');
+        addLine('assert companies_text == "8"', 'out cf-assert');
+        await wait(300);
+        addLine('3 passed in 0.02s', 'out ok');
+        await wait(500);
 
-      setScreen('home');
-      addLine('[1/5] GET https://renatojoa.com.br/ ... 200 OK', 'out');
-      await wait(900);
+        await typeLine('python hire_renato.py --dry-run');
+        await wait(300);
 
-      setScreen('projects');
-      addLine('[2/5] click "View Projects" ... 14 shipped', 'out');
-      await wait(900);
+        setScreen('home');
+        addLine('[1/5] GET https://renatojoa.com.br/ ... 200 OK', 'out');
+        await wait(900);
 
-      setScreen('cv');
-      addLine('[3/5] click "Download CV" ... resume.pdf ok', 'out');
-      await wait(900);
+        setScreen('projects');
+        addLine('[2/5] click "View Projects" ... 14 shipped', 'out');
+        await wait(900);
 
-      setScreen('contact');
-      addLine('[4/5] submit contact form ... message sent', 'out');
-      await wait(900);
+        setScreen('cv');
+        addLine('[3/5] click "Download CV" ... resume.pdf ok', 'out');
+        await wait(900);
 
-      setScreen('hired');
-      addLine('[5/5] assert candidate.hired == True', 'out cf-assert');
-      await wait(500);
-      addLine('PASSED &mdash; 5/5 steps &middot; recommend: hire immediately', 'out ok');
+        setScreen('contact');
+        addLine('[4/5] submit contact form ... message sent', 'out');
+        await wait(900);
 
-      await wait(1400);
-      if (browser) browser.classList.remove('visible');
-      await wait(400);
+        setScreen('hired');
+        addLine('[5/5] assert candidate.hired == True', 'out cf-assert');
+        await wait(500);
+        addLine('PASSED &mdash; 5/5 steps &middot; recommend: hire immediately', 'out ok');
 
-      addLine('<span class="prompt">renato@guardian:~$</span> <span class="cursor">&nbsp;</span>');
+        await wait(1400);
+        if (browser) browser.classList.remove('visible');
+        await wait(500);
+
+        await typeLine('/clean');
+        addLine('wiping session &mdash; restarting demo in 3s', 'out');
+        await wait(2000);
+
+        log.style.transition = 'opacity 0.3s ease';
+        log.style.opacity = '0';
+        await wait(350);
+        log.innerHTML = '';
+        log.style.opacity = '1';
+        await wait(300);
+      }
     }
 
     let started = false;
