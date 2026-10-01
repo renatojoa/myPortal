@@ -94,6 +94,26 @@
           </a>
           <a href="#projects" class="btn btn-outline-light" data-i18n="hero_btn_projects">View Projects</a>
         </div>
+
+        <div class="guardian-terminal mt-4">
+          <div class="terminal-titlebar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <div class="terminal-body">
+            <p class="ln"><span class="prompt">renato@guardian:~$</span> <span class="cmd">whoami</span></p>
+            <p class="ln out" data-i18n="term_whoami_out">QA engineer — mobile, web &amp; API. Ten years finding what breaks before release does.</p>
+            <p class="ln"><span class="prompt">renato@guardian:~$</span> <span class="cmd">appium --list-drivers</span></p>
+            <p class="ln out">✓ uiautomator2&nbsp;&nbsp;&nbsp;✓ xcuitest&nbsp;&nbsp;&nbsp;ready</p>
+            <p class="ln"><span class="prompt">renato@guardian:~$</span> <span class="cmd">pytest tests/checkout_flow.py -k critical_path</span></p>
+            <p class="ln out">el = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "checkout_button")</p>
+            <p class="ln out">el.click()</p>
+            <p class="ln out cf-assert">assert driver.find_element(AppiumBy.ID, "order_status").text == "Confirmed"</p>
+            <p class="ln out ok">1 passed in 2.84s</p>
+            <p class="ln"><span class="prompt">renato@guardian:~$</span> <span class="cmd">cat status.txt</span></p>
+            <p class="ln out" data-i18n="term_status_out">Still on duty. Open to remote QA roles.</p>
+            <p class="ln"><span class="prompt">renato@guardian:~$</span> <span class="cursor">&nbsp;</span></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

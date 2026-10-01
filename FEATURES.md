@@ -40,6 +40,7 @@
 
 ## Guardian Narrative
 - Site-wide "last line of defense" narrative voice: hero rewrite + uppercase section kickers reframing each section (About, Companies, Skills, Experience) around the QA-as-guardian metaphor
+- Hero terminal widget — fake shell session (`whoami`, `appium --list-drivers`, `pytest ... -k critical_path`, `cat status.txt`) showing the QA identity/stack in a recognizable dev-portfolio terminal UI
 - Trust wall — logo strip reusing company logos from Supabase, placed between Hero and About
 - Case File — deep-dive section auto-featuring the project flagged `currently_working` in Supabase, with a representative Appium command + assert snippet
 - "Still on Duty" CTA section before Contact, linking to the contact form

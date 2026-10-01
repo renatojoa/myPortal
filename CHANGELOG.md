@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Hero terminal widget with an Appium/pytest/assert-flavored fake shell session, making the QA narrative more visually distinct
 
 ## [2026-10-01]
 ### Added

@@ -20,6 +20,9 @@
       trust_label: "Lines I've Held",
       trust_lead: 'Teams that shipped with me watching the line.',
 
+      term_whoami_out: 'QA engineer — mobile, web & API. Ten years finding what breaks before release does.',
+      term_status_out: 'Still on duty. Open to remote QA roles.',
+
       about_label: 'Why I Hold The Line',
       about_title: 'About Me',
       about_h4: 'QA Engineer & Test Automation Specialist',
@@ -107,6 +110,9 @@
 
       trust_label: 'Linhas Que Já Segurei',
       trust_lead: 'Times que lançaram comigo de olho na linha.',
+
+      term_whoami_out: 'Engenheiro de QA — mobile, web e API. Dez anos achando o que quebra antes do release.',
+      term_status_out: 'Ainda de plantão. Aberto a vagas remotas de QA.',
 
       about_label: 'Por Que Eu Seguro A Linha',
       about_title: 'Sobre Mim',

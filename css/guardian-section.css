@@ -115,8 +115,71 @@
   word-break: break-word;
 }
 
-.case-file-log .cf-comment { color: var(--text-muted); }
-.case-file-log .cf-assert { color: var(--accent); }
+.cf-comment { color: var(--text-muted); }
+.cf-assert { color: var(--accent); }
+
+/* Hero terminal */
+.guardian-terminal {
+  max-width: 560px;
+  background: rgba(10, 16, 28, 0.82);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.6rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.terminal-titlebar {
+  display: flex;
+  gap: 6px;
+  padding: 0.6rem 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.terminal-titlebar .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.terminal-titlebar .dot.red { background: #ff5f56; }
+.terminal-titlebar .dot.yellow { background: #ffbd2e; }
+.terminal-titlebar .dot.green { background: #27c93f; }
+
+.terminal-body {
+  padding: 0.9rem 1rem 1rem;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.terminal-body .ln {
+  margin: 0 0 0.15rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: rgba(255,255,255,0.55);
+}
+
+.terminal-body .prompt { color: #38bdf8; }
+.terminal-body .cmd { color: #fff; font-weight: 500; }
+.terminal-body .out { margin-bottom: 0.55rem; padding-left: 0; }
+.terminal-body .ok { color: #4ade80; }
+.terminal-body .cf-assert { color: #38bdf8; }
+
+.terminal-body .cursor {
+  background: #38bdf8;
+  animation: term-blink 1s step-end infinite;
+}
+
+@keyframes term-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@media (max-width: 575px) {
+  .terminal-body { font-size: 0.66rem; }
+}
 
 /* CTA — Still on duty */
 #still-on-duty .section-label { color: var(--accent); }
