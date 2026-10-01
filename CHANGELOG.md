@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [2026-10-01]
+### Added
+- Guardian narrative redesign: hero rewrite and section kickers reframing the site around a "last line of defense" QA voice
+- Trust wall section (company logo strip) between Hero and About
+- Case File section — deep-dive on the current (`currently_working`) project, including an Appium command + assert snippet
+- "Still on Duty" CTA section before Contact
+- Lenis smooth scroll, wired into existing anchor navigation and scroll reveals
+- PT/EN translations for all new copy
+
 ## [2026-06-07]
 ### Added
 - `wiki_title` column to companies Supabase schema — admin sets exact Wikipedia page title per company

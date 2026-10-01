@@ -101,13 +101,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Smooth scroll ─────────────────────────────────────
-  function initSmoothScroll() {
+  function initSmoothScroll(lenis) {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        if (!target) return;
+        e.preventDefault();
+        if (lenis) lenis.scrollTo(target);
+        else target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+  }
+
+  // ── Lenis smooth scroll ────────────────────────────────
+  function initLenis() {
+    if (typeof Lenis === 'undefined') return null;
+    const lenis = new Lenis();
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    return lenis;
   }
 
   // ── Companies timeline toggle ──────────────────────────
@@ -170,6 +182,61 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (e) {
       showError('skills-container', 'Could not load skills.');
     }
+  }
+
+  // ── Trust wall from Supabase ───────────────────────────
+  async function initTrustWall() {
+    const strip = document.getElementById('trust-wall-strip');
+    if (!strip || typeof fetchCompanies === 'undefined') return;
+    try {
+      const companies = await fetchCompanies();
+      strip.innerHTML = companies.map(function (c, i) {
+        return '<div class="trust-logo fade-in" style="transition-delay:' + (i * 50) + 'ms">' +
+          '<img src="' + esc(c.logo_url) + '" alt="' + esc(c.name) + '"' +
+            ' onerror="this.parentElement.style.display=\'none\'">' +
+          '</div>';
+      }).join('');
+      initScrollAnimations();
+    } catch (e) {
+      document.getElementById('trust-wall').style.display = 'none';
+    }
+  }
+
+  // ── Case File from Supabase ───────────────────────────
+  function initCaseFile() {
+    const section = document.getElementById('case-file');
+    const container = document.getElementById('case-file-container');
+    if (!section || !container || typeof fetchProjects === 'undefined') return;
+    fetchProjects().then(function (projects) {
+      const p = projects.find(function (x) { return x.currently_working; });
+      if (!p) { section.remove(); return; }
+
+      const techTags = (p.technologies || []).map(function (t) {
+        return '<span class="tech-tag">' + esc(t) + '</span>';
+      }).join('');
+
+      container.innerHTML =
+        '<div class="case-file-card fade-in">' +
+          '<img class="case-file-img" src="' + (esc(p.image_url) || 'assets/img/others/unavailable.png') + '"' +
+            ' alt="' + esc(p.title) + '" onerror="this.src=\'assets/img/others/unavailable.png\'">' +
+          '<div class="case-file-body">' +
+            '<span class="case-file-status" data-i18n="casefile_status">' +
+              (window.t ? window.t('casefile_status') : 'Status: still in service') +
+            '</span>' +
+            '<h3 class="case-file-title">' + esc(p.title) + '</h3>' +
+            '<p class="case-file-desc">' + esc(p.description) + '</p>' +
+            '<div class="tech-tags">' + techTags + '</div>' +
+            '<p class="case-file-log-label" data-i18n="casefile_log_label">' +
+              (window.t ? window.t('casefile_log_label') : 'From the test log') +
+            '</p>' +
+            '<pre class="case-file-log"><span class="cf-comment"># ' + esc(p.title) + ' — critical path, Appium</span>\n' +
+'el = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "checkout_button")\n' +
+'el.click()\n' +
+'<span class="cf-assert">assert driver.find_element(AppiumBy.ID, "order_status").text == "Confirmed"</span></pre>' +
+          '</div>' +
+        '</div>';
+      initScrollAnimations();
+    }).catch(function () { section.remove(); });
   }
 
   // ── Companies from Supabase ───────────────────────────
@@ -365,13 +432,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Init all ──────────────────────────────────────────
+  const lenis = initLenis();
   initDarkMode();
   initNavbar();
   initCounters();
   initScrollAnimations();
   initProgressBars();
-  initSmoothScroll();
+  initSmoothScroll(lenis);
   initFooterYear();
   initSkillsFromDB();
   initCompaniesFromDB();
+  initTrustWall();
+  initCaseFile();
 });

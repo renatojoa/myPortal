@@ -20,14 +20,14 @@
 - Admin panel: set `wiki_title` per company
 
 ## Skills
-- Dynamic partial loading (`partials/skills-section.html`)
-- Toggle show/hide details on button click
+- Dynamic loading from Supabase, grouped by category
 - IDE skills category
 
 ## Projects
-- Hardcoded JS array in `js/projects-section.js`, rendered in reverse
+- Dynamic loading from Supabase (`js/data.js` `fetchProjects()`), rendered via `js/projects-section.js`
 - Project cards with store badges (App Store, Play Store, Web, Unavailable)
 - Company logo thumbnails
+- Project detail modal
 
 ## Experience
 - Dedicated section with experience content
@@ -37,3 +37,11 @@
 
 ## CV Download
 - PDF available at `assets/pdf/Renato Araújo - EN.pdf`
+
+## Guardian Narrative
+- Site-wide "last line of defense" narrative voice: hero rewrite + uppercase section kickers reframing each section (About, Companies, Skills, Experience) around the QA-as-guardian metaphor
+- Trust wall — logo strip reusing company logos from Supabase, placed between Hero and About
+- Case File — deep-dive section auto-featuring the project flagged `currently_working` in Supabase, with a representative Appium command + assert snippet
+- "Still on Duty" CTA section before Contact, linking to the contact form
+- Lenis-powered smooth scroll (CDN, no build step) wired into existing anchor navigation and `IntersectionObserver` fade-in reveals
+- Full PT/EN i18n coverage for all new copy

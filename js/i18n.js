@@ -8,8 +8,8 @@
       nav_experience: 'Experience',
       nav_contact: 'Contact',
 
-      hero_label: 'Quality Assurance Engineer',
-      hero_title: 'Test. Validate.<br><span class="accent">Ensure Safety.</span>',
+      hero_label: 'The Last Line Before Ship',
+      hero_title: 'I hold the line.<br><span class="accent">Before bugs reach the people who trusted you.</span>',
       hero_subtitle: 'Driving excellence through precision and reliability — Recife, Brasil',
       hero_stat_years: 'Years',
       hero_stat_projects: 'Projects',
@@ -17,7 +17,10 @@
       hero_btn_cv: 'Download CV',
       hero_btn_projects: 'View Projects',
 
-      about_label: 'About',
+      trust_label: "Lines I've Held",
+      trust_lead: 'Teams that shipped with me watching the line.',
+
+      about_label: 'Why I Hold The Line',
       about_title: 'About Me',
       about_h4: 'QA Engineer & Test Automation Specialist',
       about_p1: 'Passionate Quality Assurance Engineer with 10+ years of experience ensuring software quality through meticulous testing and automation across mobile, web, and API platforms.',
@@ -30,7 +33,7 @@
       about_edu_label: 'Education',
       about_edu_val: 'Computer Science, Unicap',
 
-      companies_label: 'Companies',
+      companies_label: 'Where I Stood Guard',
       companies_title: 'Professional Journey',
       badge_current: 'Current',
       companies_toggle_see: 'See Full Experience',
@@ -44,18 +47,29 @@
       visit_website: 'Visit Website',
       currently_working_badge: 'Currently Working',
 
-      skills_label: 'Skills',
+      casefile_label: 'Case File — Open',
+      casefile_title: 'Case File',
+      casefile_lead: 'One release under watch, start to finish.',
+      casefile_log_label: 'From the test log',
+      casefile_status: 'Status: still in service',
+
+      skills_label: 'What I Bring To The Line',
       skills_title: 'Skills & Tools',
       skills_languages: 'Languages',
       skills_api: 'API Testing',
       skills_platforms: 'Test Platforms',
       skills_ides: 'IDEs',
 
-      exp_label: 'Experience',
+      exp_label: 'What I Bring To The Line',
       exp_title: 'Experience',
       exp_general: 'General',
       exp_technical: 'Technical',
       exp_years: 'years',
+
+      cta_label: 'Still On Duty',
+      cta_title: "Looking for teams that ship fast but still want someone watching the line.",
+      cta_subtitle: 'Open to remote QA leadership / automation roles.',
+      cta_btn: 'Get In Touch',
 
       contact_label: 'Contact',
       contact_title: 'Get In Touch',
@@ -82,8 +96,8 @@
       nav_experience: 'Experiência',
       nav_contact: 'Contato',
 
-      hero_label: 'Engenheiro de Qualidade de Software',
-      hero_title: 'Teste. Valide.<br><span class="accent">Garanta Qualidade.</span>',
+      hero_label: 'A Última Linha Antes do Deploy',
+      hero_title: 'Eu seguro a linha.<br><span class="accent">Antes que o bug chegue em quem confiou.</span>',
       hero_subtitle: 'Impulsionando a excelência com precisão e confiabilidade — Recife, Brasil',
       hero_stat_years: 'Anos',
       hero_stat_projects: 'Projetos',
@@ -91,7 +105,10 @@
       hero_btn_cv: 'Baixar CV',
       hero_btn_projects: 'Ver Projetos',
 
-      about_label: 'Sobre',
+      trust_label: 'Linhas Que Já Segurei',
+      trust_lead: 'Times que lançaram comigo de olho na linha.',
+
+      about_label: 'Por Que Eu Seguro A Linha',
       about_title: 'Sobre Mim',
       about_h4: 'Engenheiro QA & Especialista em Automação de Testes',
       about_p1: 'Engenheiro de Qualidade apaixonado com mais de 10 anos de experiência garantindo a qualidade de software por meio de testes minuciosos e automação em plataformas mobile, web e API.',
@@ -104,7 +121,7 @@
       about_edu_label: 'Formação',
       about_edu_val: 'Ciência da Computação, Unicap',
 
-      companies_label: 'Empresas',
+      companies_label: 'Onde Fiquei De Guarda',
       companies_title: 'Trajetória Profissional',
       badge_current: 'Atual',
       companies_toggle_see: 'Ver Experiência Completa',
@@ -118,18 +135,29 @@
       visit_website: 'Visitar Site',
       currently_working_badge: 'Trabalhando Atualmente',
 
-      skills_label: 'Habilidades',
+      casefile_label: 'Ficha De Caso — Aberta',
+      casefile_title: 'Ficha de Caso',
+      casefile_lead: 'Um release sob vigilância, do início ao fim.',
+      casefile_log_label: 'Do log de teste',
+      casefile_status: 'Status: ainda em serviço',
+
+      skills_label: 'O Que Eu Levo Pra Linha',
       skills_title: 'Habilidades & Ferramentas',
       skills_languages: 'Linguagens',
       skills_api: 'Testes de API',
       skills_platforms: 'Plataformas de Teste',
       skills_ides: 'IDEs',
 
-      exp_label: 'Experiência',
+      exp_label: 'O Que Eu Levo Pra Linha',
       exp_title: 'Experiência',
       exp_general: 'Geral',
       exp_technical: 'Técnico',
       exp_years: 'anos',
+
+      cta_label: 'Ainda De Plantão',
+      cta_title: 'Procurando times que lançam rápido mas ainda querem alguém de olho na linha.',
+      cta_subtitle: 'Aberto a posições remotas de liderança QA / automação.',
+      cta_btn: 'Entrar em Contato',
 
       contact_label: 'Contato',
       contact_title: 'Entre em Contato',
