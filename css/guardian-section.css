@@ -266,19 +266,39 @@
 .mb-screen {
   position: absolute;
   inset: 0;
-  padding: 0.7rem;
+  padding: 0.6rem 0.7rem 0.7rem;
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  background: #fff;
 }
 .mb-screen.active { opacity: 1; }
 
+/* Home screen — mimics the real dark hero */
+.mb-home { background: #0f172a; }
+
 .mb-nav {
-  height: 6px;
-  width: 40%;
-  background: #cbd5e1;
-  border-radius: 3px;
-  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.7rem;
+}
+.mb-brand { font-size: 0.6rem; font-weight: 800; color: #fff; }
+.mb-brand.dark { color: #1e293b; }
+.mb-navlink {
+  width: 16px; height: 3px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 2px;
+  margin-left: 0.3rem;
+}
+.mb-navlink.dark { background: #cbd5e1; }
+
+.mb-kicker {
+  width: 50%;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
 }
 
 .mb-bar {
@@ -287,9 +307,10 @@
   border-radius: 3px;
   margin-bottom: 0.5rem;
 }
+.mb-home .mb-bar { background: rgba(255,255,255,0.85); }
 .mb-bar.w70 { width: 70%; }
 .mb-bar.w50 { width: 50%; }
-.mb-bar.accent { background: #38bdf8; }
+.mb-bar.accent { background: #38bdf8 !important; }
 
 .mb-btn {
   width: 60px;
@@ -299,18 +320,34 @@
   margin-top: 0.7rem;
 }
 
+/* Projects screen — light, like the real projects grid */
+.mb-projects { background: #f8fafc; }
 .mb-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
 }
 .mb-card {
-  height: 40px;
-  background: #e2e8f0;
+  background: #fff;
   border-radius: 4px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.mb-card-thumb {
+  height: 24px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+}
+.mb-card-line {
+  height: 5px;
+  width: 70%;
+  background: #cbd5e1;
+  border-radius: 2px;
+  margin: 0.4rem auto;
 }
 
+/* CV screen */
+.mb-cv { background: #fff; }
 .mb-toast {
   display: inline-block;
   background: #0ea5e9;
@@ -322,10 +359,12 @@
   margin-top: 1rem;
 }
 
+/* Contact screen — light gray, like the real contact section */
+.mb-contact { background: #f8fafc; }
 .mb-input {
   height: 14px;
-  background: #e2e8f0;
-  border: 1px solid #cbd5e1;
+  background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 3px;
   margin-bottom: 0.5rem;
 }
