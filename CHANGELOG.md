@@ -9,6 +9,7 @@
 - Local CSS/JS assets now cache-busted (`?v=`) — stale cached `i18n.js` was leaving untranslated i18n keys visible on screen after deploys
 - Hero terminal's internal command log is now exempted from Lenis (`data-lenis-prevent`) — its own scrollbar was likely trapping page scroll when the cursor hovered it, blocking scroll back to the top
 - Mini-browser now collapses to 0 height (not just opacity) when hidden — it was leaving a reserved blank box in the terminal card between runs; the terminal card itself now visibly grows/shrinks with it
+- Terminal log no longer reserves a fixed 150px of empty space at the start of each cycle — it now sizes to its actual content and only caps/scrolls once it gets long
 
 ### Changed
 - Hero terminal: mini-browser now stays hidden until `hire_renato.py --dry-run` runs, and fades out again once the run finishes (instead of sitting empty/visible the whole time)

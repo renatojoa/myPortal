@@ -211,11 +211,11 @@
 }
 
 .terminal-log {
-  min-height: 150px;
   max-height: 220px;
   overflow-y: auto;
   margin-bottom: 0.8rem;
 }
+.terminal-log:empty { margin-bottom: 0; }
 
 .terminal-log .ln { margin: 0 0 0.2rem; }
 
