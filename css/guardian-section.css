@@ -228,7 +228,11 @@
   width: 260px;
   max-width: 100%;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+.mini-browser.visible { opacity: 1; transform: translateY(0); }
 
 .mini-browser-chrome {
   display: flex;
@@ -300,6 +304,58 @@
   border-radius: 2px;
   margin-bottom: 0.5rem;
 }
+
+/* Home screen — real nav + hero copy, miniaturized */
+.mb-nav-text { flex-wrap: wrap; row-gap: 1px; margin-bottom: 0.4rem; }
+.mb-navtext {
+  font-size: 2.6px;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+  font-family: "Merriweather Sans", sans-serif;
+}
+.mb-navicon { font-size: 3.2px; line-height: 1; }
+.mb-navbtn {
+  font-size: 2.3px;
+  color: #fff;
+  border: 0.3px solid rgba(255,255,255,0.5);
+  border-radius: 1px;
+  padding: 0 1px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.mb-kicker-text {
+  font-size: 2.6px;
+  letter-spacing: 0.4px;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.mb-title {
+  font-size: 5.5px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  font-family: "Merriweather", serif;
+}
+.mb-title.accent { color: #38bdf8; }
+
+.mb-subtitle {
+  font-size: 2.6px;
+  color: rgba(255,255,255,0.6);
+  margin: 0.35rem 0 0.5rem;
+}
+
+.mb-stats {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 2.6px;
+  color: rgba(255,255,255,0.6);
+  font-family: "Merriweather Sans", sans-serif;
+  text-transform: uppercase;
+}
+.mb-stats b { display: block; font-size: 4.5px; color: #38bdf8; font-family: "Merriweather Sans", sans-serif; }
 
 .mb-bar {
   height: 10px;

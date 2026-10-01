@@ -40,7 +40,7 @@
 
 ## Guardian Narrative
 - Site-wide "last line of defense" narrative voice: hero rewrite + uppercase section kickers reframing each section (About, Companies, Skills, Experience) around the QA-as-guardian metaphor
-- Hero terminal widget — typed `whoami` → name, then a simulated `hire_renato.py --dry-run` automation run that steps a tiny mock browser through Home → Projects → CV → Contact → Hired, logged like a passing test run
+- Hero terminal widget — typed `whoami` → name, a `pytest tests/hero_stats.py` step asserting the hero stats, then a simulated `hire_renato.py --dry-run` run that steps a tiny mock browser (styled like the real site, home screen uses real nav/copy text) through Home → Projects → CV → Contact → Hired, logged like a passing test run; the mock browser only appears while the automation runs
 - About section info grid replaced with a themed `assert` block (location/experience/email as passing asserts, education as a deliberately failing assert with an `AssertionError` + `FAILED` summary — a joke that learning never completes)
 - Trust wall — logo strip reusing company logos from Supabase, placed between Hero and About
 - Case File — deep-dive section auto-featuring the project flagged `currently_working` in Supabase, with a representative Appium command + assert snippet

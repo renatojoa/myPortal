@@ -6,7 +6,13 @@
 - About section info grid restyled as a themed `assert` block, with the Education line a deliberately failing assertion
 
 ### Fixed
-- Local CSS/JS assets now cache-busted with `?v=3` — stale cached `i18n.js` was leaving untranslated i18n keys visible on screen after deploys
+- Local CSS/JS assets now cache-busted (`?v=`) — stale cached `i18n.js` was leaving untranslated i18n keys visible on screen after deploys
+- Hero terminal's internal command log is now exempted from Lenis (`data-lenis-prevent`) — its own scrollbar was likely trapping page scroll when the cursor hovered it, blocking scroll back to the top
+
+### Changed
+- Hero terminal: mini-browser now stays hidden until `hire_renato.py --dry-run` runs, and fades out again once the run finishes (instead of sitting empty/visible the whole time)
+- Hero terminal: added a `pytest tests/hero_stats.py` step asserting the hero's years/projects/companies stat text
+- Hero terminal's "home" mock screen now shows the real nav links, hero kicker, title, subtitle and stats as miniature text instead of abstract bars
 
 ## [2026-10-01]
 ### Added

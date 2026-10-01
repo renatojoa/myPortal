@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function setScreen(name) {
       if (!browser) return;
+      browser.classList.add('visible');
       browser.querySelectorAll('.mb-screen').forEach(function (el) {
         el.classList.toggle('active', el.dataset.screen === name);
       });
@@ -166,6 +167,15 @@ document.addEventListener('DOMContentLoaded', function () {
       addLine(esc(window.t ? window.t('term_whoami_out') : 'Renato Araújo — QA Engineer'), 'out');
       await wait(500);
 
+      await typeLine('pytest tests/hero_stats.py -v');
+      await wait(300);
+      addLine('assert years_text == "10+"', 'out cf-assert');
+      addLine('assert projects_text == "14"', 'out cf-assert');
+      addLine('assert companies_text == "8"', 'out cf-assert');
+      await wait(300);
+      addLine('3 passed in 0.02s', 'out ok');
+      await wait(500);
+
       await typeLine('python hire_renato.py --dry-run');
       await wait(300);
 
@@ -189,6 +199,10 @@ document.addEventListener('DOMContentLoaded', function () {
       addLine('[5/5] assert candidate.hired == True', 'out cf-assert');
       await wait(500);
       addLine('PASSED &mdash; 5/5 steps &middot; recommend: hire immediately', 'out ok');
+
+      await wait(1400);
+      if (browser) browser.classList.remove('visible');
+      await wait(400);
 
       addLine('<span class="prompt">renato@guardian:~$</span> <span class="cursor">&nbsp;</span>');
     }
