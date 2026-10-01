@@ -122,6 +122,86 @@ document.addEventListener('DOMContentLoaded', function () {
     return lenis;
   }
 
+  // ── Hero terminal: typed "hire_renato.py" demo ─────────
+  function initHeroTerminal() {
+    const wrap = document.getElementById('hero-terminal');
+    const log = document.getElementById('terminal-log');
+    const browser = document.getElementById('mini-browser');
+    if (!wrap || !log) return;
+
+    function setScreen(name) {
+      if (!browser) return;
+      browser.querySelectorAll('.mb-screen').forEach(function (el) {
+        el.classList.toggle('active', el.dataset.screen === name);
+      });
+    }
+
+    function addLine(html, cls) {
+      const p = document.createElement('p');
+      p.className = 'ln' + (cls ? ' ' + cls : '');
+      p.innerHTML = html;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+      return p;
+    }
+
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    function typeLine(cmd) {
+      return new Promise(function (resolve) {
+        const p = addLine('<span class="prompt">renato@guardian:~$</span> <span class="cmd"></span>');
+        const cmdEl = p.querySelector('.cmd');
+        let i = 0;
+        const iv = setInterval(function () {
+          cmdEl.textContent += cmd[i];
+          i++;
+          log.scrollTop = log.scrollHeight;
+          if (i >= cmd.length) { clearInterval(iv); setTimeout(resolve, 250); }
+        }, 22);
+      });
+    }
+
+    async function run() {
+      await typeLine('whoami');
+      addLine(esc(window.t ? window.t('term_whoami_out') : 'Renato Araújo — QA Engineer'), 'out');
+      await wait(500);
+
+      await typeLine('python hire_renato.py --dry-run');
+      await wait(300);
+
+      setScreen('home');
+      addLine('[1/5] GET https://renatojoa.com.br/ ... 200 OK', 'out');
+      await wait(900);
+
+      setScreen('projects');
+      addLine('[2/5] click "View Projects" ... 14 shipped', 'out');
+      await wait(900);
+
+      setScreen('cv');
+      addLine('[3/5] click "Download CV" ... resume.pdf ok', 'out');
+      await wait(900);
+
+      setScreen('contact');
+      addLine('[4/5] submit contact form ... message sent', 'out');
+      await wait(900);
+
+      setScreen('hired');
+      addLine('[5/5] assert candidate.hired == True', 'out cf-assert');
+      await wait(500);
+      addLine('PASSED &mdash; 5/5 steps &middot; recommend: hire immediately', 'out ok');
+
+      addLine('<span class="prompt">renato@guardian:~$</span> <span class="cursor">&nbsp;</span>');
+    }
+
+    let started = false;
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !started) { started = true; run(); observer.disconnect(); }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(wrap);
+  }
+
   // ── Companies timeline toggle ──────────────────────────
   function initCompaniesToggle() {
     const btn = document.getElementById('companies-toggle-btn');
@@ -444,4 +524,5 @@ document.addEventListener('DOMContentLoaded', function () {
   initCompaniesFromDB();
   initTrustWall();
   initCaseFile();
+  initHeroTerminal();
 });

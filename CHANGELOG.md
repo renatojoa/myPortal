@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 ### Added
-- Hero terminal widget with an Appium/pytest/assert-flavored fake shell session, making the QA narrative more visually distinct
+- Hero terminal now types `whoami` (outputs name) then runs a simulated `hire_renato.py` automation that steps a mock mini-browser through Home → Projects → CV → Contact → Hired
+- About section info grid restyled as a themed `assert` block, with the Education line a deliberately failing assertion
+
+### Fixed
+- Local CSS/JS assets now cache-busted with `?v=3` — stale cached `i18n.js` was leaving untranslated i18n keys visible on screen after deploys
 
 ## [2026-10-01]
 ### Added
