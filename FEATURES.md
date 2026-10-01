@@ -42,6 +42,7 @@
 - Site-wide "last line of defense" narrative voice: hero rewrite + uppercase section kickers reframing each section (About, Companies, Skills, Experience) around the QA-as-guardian metaphor
 - Hero terminal widget — typed `whoami` → name, a `pytest tests/hero_stats.py` step asserting the hero stats, then a simulated `hire_renato.py --dry-run` run that steps a tiny mock browser (styled like the real site, home screen uses real nav/copy text) through Home → Projects → CV → Contact → Hired, logged like a passing test run; the mock browser only appears while the automation runs; loops forever via a `/clean` step that clears the log and restarts from `whoami`
 - About section info grid replaced with a themed `assert` block (location/experience/email as passing asserts, education as a deliberately failing assert with an `AssertionError` + `FAILED` summary — a joke that learning never completes)
+- Contact section's Email/Phone/LinkedIn/Location block restyled as a Python REPL (`>>> print(email)` / output), matching the About assert block's code aesthetic
 - Trust wall — logo strip reusing company logos from Supabase, placed between Hero and About
 - Case File — deep-dive section auto-featuring the project flagged `currently_working` in Supabase, with a representative Appium command + assert snippet
 - "Still on Duty" CTA section before Contact, linking to the contact form

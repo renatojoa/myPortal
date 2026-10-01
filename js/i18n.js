@@ -68,10 +68,6 @@
 
       contact_label: 'Contact',
       contact_title: 'Get In Touch',
-      contact_email_label: 'Email',
-      contact_phone_label: 'Phone',
-      contact_linkedin_label: 'LinkedIn',
-      contact_location_label: 'Location',
       contact_location_val: 'Recife, Brazil',
       contact_name_ph: 'Your Name',
       contact_email_ph: 'Your Email',
@@ -151,10 +147,6 @@
 
       contact_label: 'Contato',
       contact_title: 'Entre em Contato',
-      contact_email_label: 'Email',
-      contact_phone_label: 'Telefone',
-      contact_linkedin_label: 'LinkedIn',
-      contact_location_label: 'Localização',
       contact_location_val: 'Recife, Brasil',
       contact_name_ph: 'Seu Nome',
       contact_email_ph: 'Seu Email',

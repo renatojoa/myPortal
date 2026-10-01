@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- Contact section's Email/Phone/LinkedIn/Location block restyled as a Python REPL (`>>> print(email)` style), matching the About assert block
 - Hero terminal now types `whoami` (outputs name) then runs a simulated `hire_renato.py` automation that steps a mock mini-browser through Home → Projects → CV → Contact → Hired, restyled to match the real site's look (dark hero, gradient project thumbnails, light sections)
 - About section info grid restyled as a themed `assert` block, with the Education line a deliberately failing assertion
 
