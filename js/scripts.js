@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const el = document.getElementById('cal-inline-widget');
     if (!el) return;
 
-    const CAL_LINK = 'renatojoa/30min'; // TODO: replace with your real Cal.com username/event link
+    const CAL_LINK = 'renatojoa';
 
     (function (C, A, L) {
       let p = function (a, ar) { a.q.push(ar); };
